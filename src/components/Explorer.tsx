@@ -1,31 +1,36 @@
 import { useMemo, useState } from "react";
-import {
-  queryAccounts,
-  type AccountQuery,
-  type AccountSortKey,
-} from "../lib/accounts";
-import type { Account } from "../lib/types";
-import { formatAsOf, formatCount, formatDay } from "../lib/format";
+import type { Poster, PosterQuery, PosterSortKey } from "../lib/posters";
+import { queryPosters } from "../lib/posters";
+import { formatCompact, formatDay } from "../lib/format";
+import { Avatar } from "./Avatar";
 import { ProfileDisclaimer } from "./ProfileDisclaimer";
 
-const INITIAL: AccountQuery = {
+const INITIAL: PosterQuery = {
   text: "",
   onList: "any",
   block: "any",
   profile: "any",
-  sortKey: "handle",
-  sortDir: "asc",
+  sortKey: "followers",
+  sortDir: "desc",
 };
 
 function cellCount(value: number | null | undefined): string {
-  return typeof value === "number" ? formatCount(value) : "—";
+  return typeof value === "number" ? formatCompact(value) : "—";
 }
 
-export function Explorer({ accounts }: { accounts: Account[] }) {
-  const [query, setQuery] = useState<AccountQuery>(INITIAL);
-  const rows = useMemo(() => queryAccounts(accounts, query), [accounts, query]);
+export function Explorer({
+  posters,
+  selected,
+  onSelect,
+}: {
+  posters: Poster[];
+  selected: string | null;
+  onSelect: (handle: string) => void;
+}) {
+  const [query, setQuery] = useState<PosterQuery>(INITIAL);
+  const rows = useMemo(() => queryPosters(posters, query), [posters, query]);
 
-  function toggleSort(key: AccountSortKey) {
+  function toggleSort(key: PosterSortKey) {
     setQuery((current) => ({
       ...current,
       sortKey: key,
@@ -33,7 +38,7 @@ export function Explorer({ accounts }: { accounts: Account[] }) {
     }));
   }
 
-  function ariaSort(key: AccountSortKey): "ascending" | "descending" | "none" {
+  function ariaSort(key: PosterSortKey): "ascending" | "descending" | "none" {
     if (query.sortKey !== key) return "none";
     return query.sortDir === "asc" ? "ascending" : "descending";
   }
@@ -52,88 +57,76 @@ export function Explorer({ accounts }: { accounts: Account[] }) {
           />
         </label>
         <label>
-          List membership
+          List
           <select
             value={query.onList}
             onChange={(event) =>
               setQuery((current) => ({
                 ...current,
-                onList: event.target.value as AccountQuery["onList"],
+                onList: event.target.value as PosterQuery["onList"],
               }))
             }
           >
             <option value="any">Any</option>
-            <option value="yes">On the curated list</option>
-            <option value="no">Not on the list</option>
-            <option value="unknown">Membership not recorded</option>
+            <option value="yes">On list</option>
+            <option value="no">Not on list</option>
+            <option value="unknown">Unknown</option>
           </select>
         </label>
         <label>
-          Block state
+          Block
           <select
             value={query.block}
             onChange={(event) =>
               setQuery((current) => ({
                 ...current,
-                block: event.target.value as AccountQuery["block"],
+                block: event.target.value as PosterQuery["block"],
               }))
             }
           >
             <option value="any">Any</option>
             <option value="blocked">Blocked</option>
-            <option value="not_blocked">Not blocked</option>
-            <option value="unknown">Not recorded</option>
+            <option value="not_blocked">Open</option>
+            <option value="unknown">Unknown</option>
           </select>
         </label>
         <label>
-          Public profile
+          Profile
           <select
             value={query.profile}
             onChange={(event) =>
               setQuery((current) => ({
                 ...current,
-                profile: event.target.value as AccountQuery["profile"],
+                profile: event.target.value as PosterQuery["profile"],
               }))
             }
           >
             <option value="any">Any</option>
-            <option value="yes">Profile snapshot present</option>
-            <option value="no">No profile snapshot</option>
+            <option value="yes">Has counts</option>
+            <option value="no">No counts</option>
           </select>
         </label>
       </form>
 
-      {accounts.length === 0 ? (
+      {posters.length === 0 ? (
         <div className="empty">
-          <h3>No public profiles in this dataset</h3>
+          <h3>No posters in this dataset</h3>
           <p>
-            Rankings and the account table stay empty on purpose. This site does not invent
-            handles, follower counts, or a leaderboard, and it does not treat a lifetime post
-            counter as measured AI slop volume.
-          </p>
-          <p>
-            To fill this view without editing UI code, add an export at{" "}
-            <code>data/inbox/&lt;export_id&gt;.json</code> with <code>accounts[]</code>. Each
-            account id is <code>account:</code> plus the lowercase handle. Profile counters need
-            their own <code>as_of</code>, <code>source</code>, and <code>provenance</code>. List
-            membership, when you include it, is stored as a community assessment. Then run{" "}
-            <code>npm run ingest</code>.
+            Add <code>accounts[]</code> or named handles on monitor events, then ingest.
           </p>
         </div>
       ) : rows.length === 0 ? (
         <p className="empty">No accounts match these filters.</p>
       ) : (
         <div className="table-wrap">
-          <table>
+          <table className="poster-table">
             <caption>
-              {rows.length} of {accounts.length} imported accounts. Lifetime posts are the public
-              profile counter.
+              {rows.length} of {posters.length}. Posts are the public profile counter.
             </caption>
             <thead>
               <tr>
-                <SortHead label="Handle" sortKey="handle" ariaSort={ariaSort("handle")} onSort={toggleSort} />
-                <th scope="col">On list</th>
-                <th scope="col">Block state</th>
+                <SortHead label="Poster" sortKey="handle" ariaSort={ariaSort("handle")} onSort={toggleSort} />
+                <th scope="col">State</th>
                 <SortHead
                   label="Lifetime posts (public profile)"
                   sortKey="lifetime_posts"
@@ -147,62 +140,56 @@ export function Explorer({ accounts }: { accounts: Account[] }) {
                   onSort={toggleSort}
                 />
                 <SortHead
-                  label="Following"
-                  sortKey="following"
-                  ariaSort={ariaSort("following")}
+                  label="Blocked"
+                  sortKey="blocked_on"
+                  ariaSort={ariaSort("blocked_on")}
                   onSort={toggleSort}
                 />
-                <SortHead
-                  label="Created"
-                  sortKey="created_on"
-                  ariaSort={ariaSort("created_on")}
-                  onSort={toggleSort}
-                />
-                <th scope="col">Profile as of</th>
               </tr>
             </thead>
             <tbody>
-              {rows.map((account) => (
-                <tr key={account.id}>
-                  <th scope="row">
-                    <a
-                      href={`https://x.com/${account.handle}`}
-                      rel="noreferrer"
-                    >
-                      @{account.handle}
-                    </a>
-                  </th>
-                  <td>
-                    {!account.list_membership
-                      ? "Not recorded"
-                      : account.list_membership.on_list
-                        ? "On list"
-                        : "Not on list"}
-                  </td>
-                  <td>
-                    {account.block?.state === "blocked"
-                      ? "Blocked"
-                      : account.block?.state === "not_blocked"
-                        ? "Not blocked"
-                        : "Not recorded"}
-                  </td>
-                  <td className="num">{cellCount(account.profile?.lifetime_posts)}</td>
-                  <td className="num">{cellCount(account.profile?.followers)}</td>
-                  <td className="num">{cellCount(account.profile?.following)}</td>
-                  <td>
-                    {account.profile?.created_on
-                      ? formatDay(account.profile.created_on, "long")
-                      : "—"}
-                  </td>
-                  <td>
-                    {account.profile ? (
-                      <time dateTime={account.profile.as_of}>{formatAsOf(account.profile.as_of)}</time>
-                    ) : (
-                      "—"
-                    )}
-                  </td>
-                </tr>
-              ))}
+              {rows.map((poster) => {
+                const pressed = selected?.toLowerCase() === poster.handle.toLowerCase();
+                return (
+                  <tr
+                    key={poster.id}
+                    className={pressed ? "is-selected" : undefined}
+                    onClick={() => onSelect(poster.handle)}
+                  >
+                    <th scope="row">
+                      <a
+                        className="poster-id"
+                        href={`https://x.com/${poster.handle}`}
+                        rel="noreferrer"
+                        aria-label={`@${poster.handle}`}
+                      >
+                        <Avatar
+                          handle={poster.handle}
+                          displayName={poster.displayName}
+                          size={36}
+                          decorative
+                        />
+                        <span>
+                          <span className="poster-handle">@{poster.handle}</span>
+                          {poster.displayName ? (
+                            <span className="poster-display">{poster.displayName}</span>
+                          ) : null}
+                        </span>
+                      </a>
+                    </th>
+                    <td>
+                      {poster.blockState === "blocked"
+                        ? "Blocked"
+                        : poster.blockState === "not_blocked"
+                          ? "Open"
+                          : "—"}
+                    </td>
+                    <td className="num">{cellCount(poster.lifetimePosts)}</td>
+                    <td className="num">{cellCount(poster.followers)}</td>
+                    <td>{poster.blockedOn ? formatDay(poster.blockedOn) : "—"}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
@@ -218,9 +205,9 @@ function SortHead({
   onSort,
 }: {
   label: string;
-  sortKey: AccountSortKey;
+  sortKey: PosterSortKey;
   ariaSort: "ascending" | "descending" | "none";
-  onSort: (key: AccountSortKey) => void;
+  onSort: (key: PosterSortKey) => void;
 }) {
   return (
     <th scope="col" aria-sort={ariaSort}>

@@ -1,13 +1,15 @@
 import { useMemo, useState } from "react";
 import rawDefault from "../data/dataset.json";
 import { aggregate } from "./lib/aggregates";
+import { collectPosters } from "./lib/posters";
 import { formatAsOf, formatCount, formatDay, formatSlot } from "./lib/format";
 import type { Dataset, Snapshot } from "./lib/types";
 import { validateDataset } from "./schema/validate";
 import { DailyChart } from "./components/DailyChart";
 import { DayTimeline } from "./components/DayTimeline";
 import { Explorer } from "./components/Explorer";
-import { Rankings } from "./components/Rankings";
+import { PosterChart } from "./components/PosterChart";
+import { PosterWall } from "./components/PosterWall";
 import { Snapshots } from "./components/Snapshots";
 
 type SeriesMode = "new" | "cumulative";
@@ -37,13 +39,15 @@ export function App({ raw = rawDefault }: { raw?: unknown }) {
       </main>
     );
   }
-  return <Monitor dataset={parsed.value} raw={raw} />;
+  return <Gallery dataset={parsed.value} raw={raw} />;
 }
 
-function Monitor({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
+function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
   const totals = useMemo(() => aggregate(dataset), [dataset]);
+  const posters = useMemo(() => collectPosters(dataset), [dataset]);
   const [mode, setMode] = useState<SeriesMode>("new");
   const [selected, setSelected] = useState<string | null>(totals.days.at(-1)?.date ?? null);
+  const [focusHandle, setFocusHandle] = useState<string | null>(null);
   const selectedDay = totals.days.find((day) => day.date === selected) ?? null;
   const xSnapshot = latestNumbered(dataset.snapshots, "x_blocks_total");
   const listSnapshot = latestNumbered(dataset.snapshots, "list_size");
@@ -59,6 +63,10 @@ function Monitor({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
     URL.revokeObjectURL(url);
   }
 
+  function focusPoster(handle: string) {
+    setFocusHandle(handle);
+  }
+
   return (
     <>
       <a className="skip" href="#content">
@@ -66,7 +74,7 @@ function Monitor({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
       </a>
       <header className="header">
         <div className="shell header-inner">
-          <a className="brand" href="#overview">
+          <a className="brand" href="#posters">
             <svg className="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
               <rect x="4" y="16" width="6" height="12" fill="currentColor" />
               <rect x="13" y="8" width="6" height="20" fill="#8fd9cf" />
@@ -74,125 +82,76 @@ function Monitor({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
             </svg>
             <span>
               <span className="brand-name">Slop-Chop</span>
-              <span className="brand-sub">AI slop poster block monitor</span>
+              <span className="brand-sub">AI slop posters</span>
             </span>
           </a>
           <nav aria-label="Sections">
-            <a href="#overview">Overview</a>
-            <a href="#timeline">Timeline</a>
-            <a href="#snapshots">Snapshots</a>
-            <a href="#explorer">Accounts</a>
-            <a href="#rankings">Activity</a>
-            <a href="#method">Methodology</a>
+            <a href="#posters">Posters</a>
+            <a href="#when">When</a>
+            <a href="#top">Top</a>
+            <a href="#explorer">Explorer</a>
+            <a href="#notes">Notes</a>
           </nav>
         </div>
       </header>
       <main id="content" className="shell">
-        <section className="masthead" aria-labelledby="page-title">
-          <div>
-            <p className="kicker">Umar’s list · @{dataset.subject.handle}</p>
-            <h1 id="page-title">Recorded blocks against a community list of AI slop posters</h1>
-            <p className="lede">
-              {dataset.list.description} Monitoring started{" "}
-              {formatDay(dataset.monitoring.started_on, "long")}. The chart counts newly blocked
-              accounts recorded by the monitor. It is not the full block list on X, and it is not
-              a live feed.
-            </p>
-          </div>
-          {partialDay ? (
-            <p className="stamp">
-              {formatDay(partialDay.date)} partial
-            </p>
-          ) : null}
-        </section>
-
-        <section id="overview" aria-labelledby="overview-heading">
-          <h2 id="overview-heading">Overview</h2>
-          <p className="reading">
-            Monitor, complete through{" "}
-            {totals.lastCompleteDate ? formatDay(totals.lastCompleteDate, "long") : "—"}:{" "}
-            <strong>{formatCount(totals.completeNewBlocks)}</strong> newly blocked.
+        <section className="hero" id="posters" aria-labelledby="page-title">
+          <div className="hero-count">
+            <p className="kicker">Recorded blocks</p>
+            <h1 id="page-title">
+              <span className="value">{formatCount(totals.completeNewBlocks)}</span>
+              <span className="hero-label">AI slop posters</span>
+            </h1>
             {partialDay ? (
-              <>
-                {" "}
-                {formatDay(partialDay.date, "long")} is partial:{" "}
-                <strong>{formatCount(partialDay.partialNewBlocks)}</strong> verified, and the day
-                is not finished.
-              </>
-            ) : null}{" "}
-            {xSnapshot && typeof xSnapshot.x_blocks_total === "number" ? (
-              <>
-                Full X block list at {formatAsOf(xSnapshot.as_of)}:{" "}
-                <strong>{formatCount(xSnapshot.x_blocks_total)}</strong>.
-              </>
-            ) : null}{" "}
-            These are different measurements taken at different times.
-          </p>
-          <div className="metrics">
-            <article aria-label="Monitor newly blocked, complete days">
-              <p className="kicker">Monitor newly blocked</p>
-              <p className="value">{formatCount(totals.completeNewBlocks)}</p>
-              <p className="detail">
-                Complete days
-                {totals.lastCompleteDate
-                  ? ` through ${formatDay(totals.lastCompleteDate, "long")}`
-                  : ""}
-                . Excludes {formatCount(totals.preexistingBlockedExcluded)} preexisting blocks.
+              <p className="stamp">
+                {formatDay(partialDay.date)} partial
               </p>
-            </article>
-            <article className="partial" aria-label="Partial monitor blocks">
-              <p className="kicker">Partial, not a finished day</p>
-              <p className="value">{formatCount(totals.partialNewBlocks)}</p>
-              <p className="detail">
-                {partialDay
-                  ? `${formatDay(partialDay.date, "long")} verified so far. Remaining approved accounts are listed under snapshots and are not added here.`
-                  : "No partial monitor events."}
-              </p>
-            </article>
-            <article aria-label="X blocks at latest timestamp">
-              <p className="kicker">X blocks at a timestamp</p>
-              <p className="value">
-                {xSnapshot && typeof xSnapshot.x_blocks_total === "number"
-                  ? formatCount(xSnapshot.x_blocks_total)
-                  : "—"}
-              </p>
-              <p className="detail">
-                {xSnapshot
-                  ? `${formatAsOf(xSnapshot.as_of)}. Full block list on X, not the monitor sum.`
-                  : "No X block snapshot."}
-              </p>
-            </article>
-            <article aria-label="Curated list size at a timestamp">
-              <p className="kicker">Curated list at a timestamp</p>
-              <p className="value">
-                {listSnapshot && typeof listSnapshot.list_size === "number"
-                  ? formatCount(listSnapshot.list_size)
-                  : "—"}
-              </p>
-              <p className="detail">
-                {listSnapshot && typeof listSnapshot.list_size === "number"
-                  ? `${formatAsOf(listSnapshot.as_of)}. ${
-                      typeof listSnapshot.list_members_blocked === "number"
-                        ? `${formatCount(listSnapshot.list_members_blocked)} blocked on the list`
-                        : "Blocked-on-list not recorded"
-                    }, ${
-                      typeof listSnapshot.list_members_unblocked === "number"
-                        ? `${formatCount(listSnapshot.list_members_unblocked)} not blocked`
-                        : "unblocked count not recorded"
-                    }.`
-                  : "No list-size snapshot."}
-              </p>
-            </article>
+            ) : null}
           </div>
+          <PosterWall posters={posters} selected={focusHandle} onSelect={focusPoster} />
         </section>
 
-        <section id="timeline" aria-labelledby="timeline-heading">
-          <h2 id="timeline-heading">Daily timeline</h2>
-          <p>
-            Each bar sums monitor events for that calendar day. Striped bars are partial. Zoom and
-            pan change the window only. Select a day to read the runs, their timestamps, and
-            provenance.
-          </p>
+        <section className="metrics" aria-label="Counts">
+          <article aria-label="Monitor newly blocked, complete days">
+            <p className="kicker">Blocked</p>
+            <p className="value">{formatCount(totals.completeNewBlocks)}</p>
+            <p className="detail">
+              {totals.lastCompleteDate ? formatDay(totals.lastCompleteDate, "long") : "—"}
+            </p>
+          </article>
+          <article className="partial" aria-label="Partial monitor blocks">
+            <p className="kicker">Partial day</p>
+            <p className="value">{formatCount(totals.partialNewBlocks)}</p>
+            <p className="detail">
+              {partialDay ? formatDay(partialDay.date, "long") : "None"}
+            </p>
+          </article>
+          <article aria-label="X blocks at latest timestamp">
+            <p className="kicker">X block list</p>
+            <p className="value">
+              {xSnapshot && typeof xSnapshot.x_blocks_total === "number"
+                ? formatCount(xSnapshot.x_blocks_total)
+                : "—"}
+            </p>
+            <p className="detail">{xSnapshot ? formatAsOf(xSnapshot.as_of) : "—"}</p>
+          </article>
+          <article aria-label="Curated list size at a timestamp">
+            <p className="kicker">On the list</p>
+            <p className="value">
+              {listSnapshot && typeof listSnapshot.list_size === "number"
+                ? formatCount(listSnapshot.list_size)
+                : "—"}
+            </p>
+            <p className="detail">
+              {listSnapshot && typeof listSnapshot.list_members_unblocked === "number"
+                ? `${formatCount(listSnapshot.list_members_unblocked)} still open`
+                : "—"}
+            </p>
+          </article>
+        </section>
+
+        <section id="when" aria-labelledby="when-heading">
+          <h2 id="when-heading">When</h2>
           <DailyChart
             days={totals.days}
             mode={mode}
@@ -200,139 +159,103 @@ function Monitor({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
             selected={selected}
             onSelect={setSelected}
           />
-          <p className="caption">
-            Cumulative through the last complete day
-            {totals.lastCompleteDate ? ` (${formatDay(totals.lastCompleteDate)})` : ""}:{" "}
-            {formatCount(totals.completeNewBlocks)}. Cumulative including partial records:{" "}
-            {formatCount(totals.recordedNewBlocks)}.
-          </p>
           {selectedDay ? (
             <section className="drill" aria-label={`${formatDay(selectedDay.date, "long")} detail`}>
               <h3>{formatDay(selectedDay.date, "long")}</h3>
-              <p>
-                {formatCount(selectedDay.newBlocks)} newly blocked
-                {selectedDay.status === "partial"
-                  ? ", and this day is incomplete"
-                  : " on a complete day"}
-                . Running recorded total after this day:{" "}
-                {formatCount(selectedDay.cumulativeRecorded)}. Complete-only running total:{" "}
-                {formatCount(selectedDay.cumulativeComplete)}.
+              <p className="mono">
+                {formatCount(selectedDay.newBlocks)}
+                {selectedDay.status === "partial" ? " · partial" : ""}
+                {" · "}
+                {formatCount(selectedDay.cumulativeRecorded)} total
               </p>
             </section>
-          ) : (
-            <p className="note">Select a day to inspect that day’s runs.</p>
-          )}
-          <h3>Historical daily timeline</h3>
-          <DayTimeline
-            dataset={dataset}
-            days={totals.days}
-            selected={selected}
-            onSelect={setSelected}
-          />
+          ) : null}
+          <details className="fold">
+            <summary>Daily runs</summary>
+            <DayTimeline
+              dataset={dataset}
+              days={totals.days}
+              selected={selected}
+              onSelect={setSelected}
+            />
+          </details>
         </section>
 
-        <section id="snapshots" aria-labelledby="snapshots-heading">
-          <h2 id="snapshots-heading">Snapshots and pending work</h2>
-          <p>
-            Every figure below is tied to a timestamp. A later snapshot does not erase an earlier
-            one, and none of them are added to the monitor’s newly blocked total. Where an X block
-            timestamp does not match the monitor sum, the snapshot note records the gap. That
-            arithmetic is not a reconciliation.
-          </p>
-          <Snapshots dataset={dataset} />
+        <section id="top" aria-labelledby="top-heading">
+          <h2 id="top-heading">Top posters</h2>
+          <PosterChart posters={posters} selected={focusHandle} onSelect={focusPoster} />
         </section>
 
         <section id="explorer" aria-labelledby="explorer-heading">
           <h2 id="explorer-heading">Account explorer</h2>
-          <p>
-            Search and filters read imported account records only. {dataset.accounts.length}{" "}
-            accounts are in this dataset.
-          </p>
-          <Explorer accounts={dataset.accounts} />
+          <Explorer posters={posters} selected={focusHandle} onSelect={setFocusHandle} />
         </section>
 
-        <section id="rankings" aria-labelledby="rankings-heading">
-          <h2 id="rankings-heading">Public profile activity</h2>
-          <p>
-            When profile snapshots exist, this ranks public follower counts and lifetime posts.
-            High activity is not evidence about the curated list, and it is not a volume of AI slop.
-          </p>
-          <Rankings accounts={dataset.accounts} />
-        </section>
-
-        <section id="method" aria-labelledby="method-heading">
-          <h2 id="method-heading">Methodology</h2>
-          <ul className="method">
-            <li>
-              Daily totals sum recorded monitor events. They are not computed by diffing the full
-              X block list.
-            </li>
-            <li>
-              An event counts once. Stable ids are upserted on import, so submitting the same log
-              again does not add the same blocks twice. A corrected event with the same id
-              replaces the previous count.
-            </li>
-            <li>
-              Events marked superseded stay visible and are left out of totals.
-            </li>
-            <li>
-              Open-work records describe unfinished batches. Approved and remaining counts are not
-              added on top of the related event.
-            </li>
-            <li>
-              Snapshots are point-in-time observations of list size and the full X block list.
-              Two snapshots are not a reconciliation.
-            </li>
-            <li>
-              {dataset.monitoring.preexisting_note}
-            </li>
-            <li>
-              {dataset.events.filter((event) => event.status === "superseded").length === 0
-                ? "No monitor row is superseded."
-                : `Superseded rows stay in the timeline and are left out of totals: ${dataset.events
-                    .filter((event) => event.status === "superseded")
-                    .map((event) => `${formatDay(event.date)} ${formatSlot(event.slot)} (${formatCount(event.new_blocks)})`)
-                    .join(", ")}.`}
-            </li>
-            <li>
-              Curated list membership is a community assessment, not independent evidence that an
-              account is an AI slop poster.
-            </li>
-            <li>
-              When profile rows are present, lifetime posts, followers, and following are public
-              profile counters. They are not measured AI slop volume.
-            </li>
-            <li>
-              Named handles on small runs were carried from the routine journal. A missing handle
-              list means the journal recorded a count only. The numeric new-block field is
-              authoritative.
-            </li>
-            <li>
-              Dates and slots use {dataset.monitoring.timezone}. This page does not call X, does
-              not hold API keys, and does not scrape.
-            </li>
-          </ul>
-          <h3>How a nightly update lands</h3>
-          <p>
-            Write <code>data/inbox/&lt;export_id&gt;.json</code> matching schema{" "}
-            <code>data/schema/v1.schema.json</code> (contract version {dataset.schema_version}).
-            Run <code>npm run ingest</code>. The UI reads <code>data/dataset.json</code> and does
-            not need a code change. Open a pull request. Do not merge it until the numbers have
-            been reviewed. The scheduled workflow validates files already in the repo only when
-            the <code>DATA_REFRESH_SOURCE</code> repository variable is <code>inbox</code>. It
-            never polls an API.
-          </p>
-          <p className="dim">
-            Dataset updated <time dateTime={dataset.updated_at}>{formatAsOf(dataset.updated_at)}</time>
-            . Compiler {dataset.compiler.name} {dataset.compiler.version}. {dataset.provenance.summary}
-          </p>
+        <section id="notes" aria-labelledby="notes-heading">
+          <h2 id="notes-heading" className="sr-only">
+            Notes
+          </h2>
+          <section id="snapshots" aria-labelledby="snapshots-heading">
+            <details className="fold" open>
+              <summary>
+                <h2 id="snapshots-heading">Snapshots and pending work</h2>
+              </summary>
+              <Snapshots dataset={dataset} />
+            </details>
+          </section>
+          <section id="method" aria-labelledby="method-heading">
+            <details className="fold">
+              <summary>
+                <h2 id="method-heading">Methodology</h2>
+              </summary>
+              <ul className="method">
+                <li>Daily totals sum recorded monitor events, not diffs of the full X block list.</li>
+                <li>An event counts once. The same id replaces a row; it does not double-count.</li>
+                <li>Superseded rows stay visible and are left out of totals.</li>
+                <li>Open-work remaining counts are not added on top of the related event.</li>
+                <li>Snapshots are point-in-time. Two snapshots are not a reconciliation.</li>
+                <li>{dataset.monitoring.preexisting_note}</li>
+                <li>
+                  {dataset.events.filter((event) => event.status === "superseded").length === 0
+                    ? "No monitor row is superseded."
+                    : `Superseded rows stay in the timeline and are left out of the totals: ${dataset.events
+                        .filter((event) => event.status === "superseded")
+                        .map(
+                          (event) =>
+                            `${formatDay(event.date)} ${formatSlot(event.slot)} (${formatCount(event.new_blocks)})`,
+                        )
+                        .join(", ")}.`}
+                </li>
+                <li>
+                  Curated list membership is a community assessment, not independent evidence that an
+                  account is an AI slop poster.
+                </li>
+                <li>
+                  Lifetime posts and followers are public profile counters. They are not measured AI
+                  slop volume.
+                </li>
+                <li>
+                  Named faces come from run journals. Missing handle lists mean the journal recorded a
+                  count only.
+                </li>
+                <li>
+                  Dates use {dataset.monitoring.timezone}. This page does not call X and does not
+                  scrape.
+                </li>
+              </ul>
+              <p className="dim">
+                Dataset updated <time dateTime={dataset.updated_at}>{formatAsOf(dataset.updated_at)}</time>
+                . {dataset.provenance.summary}
+              </p>
+            </details>
+          </section>
         </section>
       </main>
       <footer className="footer">
         <div className="shell footer-inner">
           <p>
-            Slop-Chop · schema {dataset.schema_version} · {dataset.events.length} events ·{" "}
-            {dataset.snapshots.length} snapshots · {dataset.accounts.length} accounts
+            {formatCount(totals.completeNewBlocks)} blocked · {formatCount(posters.length)} named ·
+            schema {dataset.schema_version}
           </p>
           <button type="button" onClick={download}>
             Download dataset.json

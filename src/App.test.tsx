@@ -3,8 +3,8 @@ import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import { App } from "./App";
 
-describe("monitor page", () => {
-  it("shows the completed Nov 6 total without counting the superseded 110", async () => {
+describe("poster gallery", () => {
+  it("leads with posters and the completed Nov 6 total without counting the superseded 110", async () => {
     const user = userEvent.setup();
     render(<App />);
 
@@ -25,12 +25,17 @@ describe("monitor page", () => {
     expect(snapshots).toHaveTextContent("Nov 6, 2026, 11:37 PM EST");
     expect(document.querySelector(".stamp")).toBeNull();
 
+    expect(
+      screen.getByRole("list", { name: "Named slop posters" }).querySelectorAll(".avatar-wrap").length,
+    ).toBeGreaterThan(20);
+    expect(screen.getByRole("link", { name: "@mdp_sec" })).toBeInTheDocument();
+
     expect(screen.getByRole("button", { name: /November 6, 2026, 347 newly blocked/ })).toHaveAttribute(
       "aria-pressed",
       "true",
     );
     expect(screen.getByRole("region", { name: "November 6, 2026 detail" })).toHaveTextContent("347");
-    expect(screen.getByText(/left out of the totals/)).toHaveTextContent("110");
+    expect(screen.getByText(/Superseded record/)).toHaveTextContent("110");
 
     await user.click(screen.getByRole("button", { name: /November 5, 2026, 378 newly blocked/ }));
     expect(screen.getByRole("region", { name: "November 5, 2026 detail" })).toHaveTextContent("378");
@@ -40,9 +45,7 @@ describe("monitor page", () => {
     expect(
       screen.getByRole("button", { name: /November 5, 2026, 450 cumulative newly blocked/ }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("region", { name: "Daily timeline" })).toHaveTextContent(
-      /Cumulative including partial records:\s*797/,
-    );
+    expect(screen.getByRole("region", { name: "When" })).toHaveTextContent("797");
 
     await user.click(screen.getByRole("button", { name: "Zoom in" }));
     expect(screen.getByText(/Showing/)).toHaveTextContent("3 of 6 days");
@@ -55,7 +58,9 @@ describe("monitor page", () => {
     expect(explorer).toHaveTextContent(/not measured AI slop volume/);
     expect(explorer).toHaveTextContent("@mdp_sec");
     expect(explorer).not.toHaveTextContent(/No public profiles in this dataset/);
+    expect(screen.getByRole("region", { name: "Top posters" })).toBeInTheDocument();
     expect(document.body.textContent ?? "").not.toMatch(/\babusers?\b/i);
+    expect(document.body.textContent ?? "").not.toMatch(/Umar/);
   });
 
   it("renders a validation failure instead of invented numbers", () => {

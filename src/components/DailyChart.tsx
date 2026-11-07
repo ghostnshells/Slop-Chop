@@ -264,9 +264,8 @@ export function DailyChart({
           </label>
         </div>
         <p id={captionId} className="caption">
-          Y-axis is accounts, scaled to the visible dates. X-axis is the calendar date in
-          America/New_York. Drag sideways to pan, or hold Ctrl and scroll to zoom. Arrow keys move
-          the selected day. {mode === "new" ? "Bar height is that day’s newly blocked accounts." : "Bar height is the running sum of recorded monitor events, including partial days."}
+          {mode === "new" ? "New blocks per day." : "Running total, including partial days."} ET dates.
+          Drag to pan, Ctrl-scroll to zoom.
         </p>
       </div>
     </div>

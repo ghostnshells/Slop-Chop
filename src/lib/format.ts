@@ -1,5 +1,10 @@
 const COUNT = new Intl.NumberFormat("en-US");
 
+const COMPACT = new Intl.NumberFormat("en-US", {
+  notation: "compact",
+  maximumFractionDigits: 1,
+});
+
 const DAY = new Intl.DateTimeFormat("en-US", {
   month: "short",
   day: "numeric",
@@ -38,6 +43,10 @@ const SOURCE_LABELS: Record<string, string> = {
 
 export function formatCount(value: number): string {
   return COUNT.format(value);
+}
+
+export function formatCompact(value: number): string {
+  return COMPACT.format(value);
 }
 
 export function formatDay(date: string, style: "short" | "long" = "short"): string {
