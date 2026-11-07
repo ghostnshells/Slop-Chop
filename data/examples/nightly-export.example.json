@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "export_id": "example-do-not-ingest",
+  "exported_at": "2026-11-07T12:00:00Z",
+  "exported_by": "example",
+  "source": "example-only",
+  "provenance": "Shape example only. Do not copy this file into data/inbox.",
+  "events": [
+    {
+      "id": "monitor-new:2026-11-07:09:00",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "09:00",
+      "as_of": "2026-11-07T09:00:00-05:00",
+      "source": "example-only",
+      "provenance": "Example run journal entry with a zero count. Not a real observation.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 0,
+      "already_blocked": 0,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "EXAMPLE ONLY. Replace every value from a verified log before ingest."
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "snapshot:2026-11-07T09:00:00-05:00",
+      "as_of": "2026-11-07T09:00:00-05:00",
+      "source": "example-only",
+      "provenance": "Example point-in-time snapshot. Not a real observation.",
+      "completeness": "point_in_time",
+      "list_size": 2,
+      "list_members_blocked": 1,
+      "list_members_unblocked": 1,
+      "x_blocks_total": 3,
+      "notes": "EXAMPLE ONLY. x_blocks_total is the full X block list, not the monitor sum."
+    }
+  ],
+  "open_work": [],
+  "accounts": [
+    {
+      "id": "account:example_only",
+      "handle": "example_only",
+      "profile": {
+        "as_of": "2026-11-07T09:00:00-05:00",
+        "source": "example-only",
+        "provenance": "Example public profile counters. Not measured AI slop volume.",
+        "lifetime_posts": 1,
+        "followers": 1,
+        "following": 1,
+        "created_on": "2020-01-01",
+        "display_name": "Example only"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T09:00:00-05:00",
+        "source": "example-only",
+        "provenance": "Example community-list flag. Membership is a community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T09:00:00-05:00",
+        "source": "example-only",
+        "provenance": "Example block state tied to the example event.",
+        "state": "not_blocked",
+        "event_id": null
+      }
+    }
+  ]
+}

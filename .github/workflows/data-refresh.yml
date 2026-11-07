@@ -1,0 +1,29 @@
+name: data-refresh
+
+# Validates repo data only. Does not call X, does not read API keys, and does
+# not push. Nightly numbers land through a reviewed pull request.
+# Runs on the default branch after merge. Until repository variable
+# DATA_REFRESH_SOURCE is exactly "inbox", the job exits successfully and does
+# nothing.
+on:
+  schedule:
+    - cron: "30 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Validate inbox only when a source is configured
+        env:
+          DATA_REFRESH_SOURCE: ${{ vars.DATA_REFRESH_SOURCE }}
+        run: npm run data:refresh
