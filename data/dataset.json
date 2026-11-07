@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0.0",
   "dataset_id": "slop-chop.block-monitor",
-  "updated_at": "2026-11-07T01:00:00Z",
+  "updated_at": "2026-11-07T04:43:04.340Z",
   "compiler": {
-    "name": "manual-seed",
+    "name": "slop-chop-ingest",
     "version": "1.0.0"
   },
   "provenance": {
@@ -58,7 +58,9 @@
       "new_blocks": 1,
       "list_size": 44,
       "already_blocked": 43,
-      "handles": ["GLaDOUGHSandHiv"],
+      "handles": [
+        "GLaDOUGHSandHiv"
+      ],
       "handles_complete": true,
       "notes": "One newly blocked account. Together with the morning 40 this is the Nov 1 total of 41."
     },
@@ -74,7 +76,9 @@
       "new_blocks": 1,
       "list_size": 44,
       "already_blocked": 43,
-      "handles": ["lokidotdev"],
+      "handles": [
+        "lokidotdev"
+      ],
       "handles_complete": true,
       "notes": "One newly blocked account."
     },
@@ -122,7 +126,10 @@
       "new_blocks": 2,
       "list_size": 67,
       "already_blocked": 65,
-      "handles": ["SoumilBhandari", "heyitsjace17"],
+      "handles": [
+        "SoumilBhandari",
+        "heyitsjace17"
+      ],
       "handles_complete": true,
       "notes": "Two newly blocked accounts."
     },
@@ -138,7 +145,10 @@
       "new_blocks": 2,
       "list_size": 69,
       "already_blocked": 67,
-      "handles": ["sophwave_q56", "jennyzhouuuuuu"],
+      "handles": [
+        "sophwave_q56",
+        "jennyzhouuuuuu"
+      ],
       "handles_complete": true,
       "notes": "Two newly blocked accounts. Nov 3 total is 13."
     },
@@ -170,7 +180,9 @@
       "new_blocks": 1,
       "list_size": 67,
       "already_blocked": 66,
-      "handles": ["pogosikas"],
+      "handles": [
+        "pogosikas"
+      ],
       "handles_complete": true,
       "notes": "One newly blocked account. This is the entire Nov 4 total."
     },
@@ -261,12 +273,281 @@
       "slot": "11:35",
       "as_of": "2026-11-06T11:35:00-05:00",
       "source": "approved-batch-verify",
-      "provenance": "Partial verify at 11:35 AM ET on Nov 6, 2026 of an approved 347-account batch. The later routine was interrupted.",
-      "status": "partial",
+      "provenance": "Original 11:35 AM ET Nov 6, 2026 partial verify of 110 within the approved 347; superseded by the completed-day event at 21:00.",
+      "status": "superseded",
       "new_blocks": 110,
       "handles": [],
       "handles_complete": false,
-      "notes": "110 accounts were verified newly blocked. 237 of the approved 347 remained at this timestamp. This day is not complete. See open work open:2026-11-06:approved-347."
+      "notes": "Superseded so the completed approved batch is counted once as 347 on monitor-new:2026-11-06:21:00. Kept visible per contract."
+    },
+    {
+      "id": "monitor-new:2026-11-06:21:00",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-06",
+      "slot": "21:00",
+      "as_of": "2026-11-06T21:00:00-05:00",
+      "source": "routine-journal",
+      "provenance": "Verified completion of the Nov 6, 2026 approved 347-account batch: 110 by 11:35 AM ET, 90 more before the 9 PM run, and 147 in the 9 PM ET run (completion report).",
+      "status": "complete",
+      "new_blocks": 347,
+      "approval_id": "approved-347",
+      "handles": [
+        "cuemnee",
+        "sofiar8587025",
+        "Lupin_Ai_Coder",
+        "sumonrazamd17",
+        "Bakioption",
+        "OLIVIAETH0",
+        "ShonenWeb3",
+        "Bency1749379",
+        "evrendag1284",
+        "derahxchange",
+        "0xbrahmarishi",
+        "BadiCloud22",
+        "yourPlugAI",
+        "BeautyofNa28258",
+        "visualsbyAyra",
+        "Lianaalane",
+        "_vivek_33",
+        "_Izuweb3",
+        "SHAIKCHOG",
+        "SYMKN20",
+        "JMkernt",
+        "ammuchammu02",
+        "SaadAmmrun",
+        "MerlinOnWeb3",
+        "PromptSin",
+        "lujunnanm23",
+        "GuruVerseX",
+        "Marufhassan76",
+        "Fang_yuanyi",
+        "sallubroz",
+        "deryaart_",
+        "Frank_brilliant",
+        "Sharjeelai_786",
+        "azaztrader01",
+        "TsunamiHouse",
+        "AlexanderXQ_",
+        "web3_elcee",
+        "hungrycomposer",
+        "TsJsil3326",
+        "RuzainaMeer",
+        "Hey_tyzo",
+        "ElenaAiExpert",
+        "0x_zozo",
+        "coco_btc88",
+        "Dipanshu_AI",
+        "commonman_16",
+        "ziroel_98",
+        "muhitonx",
+        "0xannhii",
+        "dezydank",
+        "PiyumalNimsara",
+        "AfonjaAnjola",
+        "AIwithWania",
+        "finley_f18",
+        "Iam_T_HUY",
+        "bella_quack",
+        "Nhuyna1234",
+        "BennyLam",
+        "ariell_xyz",
+        "OGFIGO",
+        "stym_exe",
+        "LeoCarter45",
+        "techxutkarsh",
+        "Phu_Prosperity8",
+        "UzerKayat",
+        "tec_aryan",
+        "linaa_ai",
+        "0xAdilX",
+        "shamimai1",
+        "audiencon",
+        "YaldaMasoudi",
+        "ZeoWeb3",
+        "iamchucky",
+        "ethanorbe",
+        "haiderlevi",
+        "Lin98201",
+        "DeFiXpace",
+        "Aliba_79",
+        "NKLinhzk",
+        "soniacuts",
+        "ItsNessaOnX",
+        "debiggest5",
+        "GabrielnSpace",
+        "binz1104",
+        "djgoel123",
+        "UlisesMcarl",
+        "Marvellifestyl7",
+        "arif573900",
+        "Linh19931993",
+        "dahavalor",
+        "arpittalksstuff",
+        "luong4101992",
+        "mhieu3609",
+        "KiranNosheen6",
+        "XNXX_EN",
+        "steps_wealth",
+        "karanjagtiani04",
+        "0xmim9",
+        "garlotic",
+        "JKCapitalVN",
+        "0xUpkibaVn",
+        "hisevenih",
+        "Matt_Web3_",
+        "0xbenz95",
+        "AlexM12jx",
+        "Becky7988",
+        "MarcelVelica",
+        "BD_GemX",
+        "CraigCornell99",
+        "Jampzey",
+        "Web3pr0f",
+        "Zeez0321",
+        "DWKemp",
+        "seridarivus13",
+        "briepretty_728",
+        "base10_",
+        "leonZR1394",
+        "zakiraicoder",
+        "X0Raihan",
+        "JoshuaAbel68",
+        "GeorgeSpencerX_",
+        "IsabellaHan_",
+        "MoeinKhatteSiah",
+        "codewithhajra",
+        "dang_duytan",
+        "DD____",
+        "AnhHc8",
+        "0xGaCrypto",
+        "iam_chonchol",
+        "xCryptoAlucard",
+        "rahulchauhanux",
+        "tbros6868",
+        "YolandahGil",
+        "Ghost_X_NFT",
+        "one_dyor",
+        "Apurv35904761",
+        "Ropercha1",
+        "iZeykoai",
+        "dwkim601",
+        "ZoeyCrypto0811",
+        "Crypto_gennie",
+        "0xiliidan",
+        "zxc68984008",
+        "iguptapankaj",
+        "kengdaica",
+        "kriptoefsanemm",
+        "bludr5",
+        "OldmanScalping",
+        "JacobyoungAI",
+        "khodeSL",
+        "Miro_BNB",
+        "arpita_mishra_",
+        "RightRH",
+        "NyaiiBubu",
+        "veigapunk",
+        "rb_walter_ai",
+        "Samuelsimonsun1",
+        "0xHydar",
+        "alextalksai",
+        "chychyorjhy",
+        "aydinmustafaaa",
+        "DucCryptoX",
+        "dravenip",
+        "VeeraTechinfo",
+        "emonuxui",
+        "Raven_slb",
+        "AshishR13302711",
+        "aiwithaly",
+        "huansenFDE",
+        "Musty_hasheedu",
+        "BomHoang4943",
+        "profcryptotalks",
+        "olayemi_hq",
+        "g00manoid",
+        "Naiknelofar788",
+        "jaimesolis",
+        "Sherrie2527",
+        "EthanPark2017",
+        "mr_crypto_2017",
+        "ashoknair3107",
+        "curious_shash",
+        "4lexsvv",
+        "thinkimfalling",
+        "slashmsu",
+        "toniadreal_lab",
+        "mumairii810",
+        "LydiaMonroeAI",
+        "Richarduwah2",
+        "yaarrrchi",
+        "_sierrastahl_",
+        "MrMatCaw",
+        "amranihicham5",
+        "doctorwasif",
+        "Cherrine11",
+        "lubobtetrevass",
+        "tophatgems",
+        "tinaa2526",
+        "digitalpritam_",
+        "MissDelulu9",
+        "Zarlish_Shahid",
+        "_sophialabs",
+        "JulianGoldieSEO",
+        "progerallworld",
+        "CryptoKevin97",
+        "0xRexnftcrypto",
+        "berlinagentlab",
+        "achille610",
+        "vampire2g",
+        "Bas_Basterx",
+        "Kai_Nimo02",
+        "boishivers",
+        "CryptoTeca__",
+        "AirdropSnipersX",
+        "brunooliveira",
+        "_nghiaphan1019",
+        "Cpulok",
+        "thegaboeth",
+        "Nyerishi",
+        "minji_defi",
+        "realcecepaid",
+        "kellenxbt",
+        "mpiredivine",
+        "ventures_bd",
+        "CapCapital68",
+        "0xKeng",
+        "iZeusCrypto",
+        "Mia_Linh01",
+        "jaouad2d",
+        "Stunner_Guy",
+        "hisashikomiya",
+        "nigharsh",
+        "iPuneetSingh",
+        "iA3Hi",
+        "Lucky__gmi",
+        "neiljesani",
+        "elenapadurariu",
+        "fishjar"
+      ],
+      "handles_complete": false,
+      "notes": "Authoritative Nov 6 newly-blocked total for the approved batch. handles lists the 237 known after the 11:35 checkpoint (90 mid-batch + 147 at 9 PM); the first 110 handles were not retained, so handles_complete is false. Replaces the superseded 110 partial for totals."
+    },
+    {
+      "id": "monitor-new:2026-11-06:21:43",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-06",
+      "slot": "21:43",
+      "as_of": "2026-11-06T21:43:00-05:00",
+      "source": "routine-journal",
+      "provenance": "Post-completion verify from ai-slop-347-completion-report.json as of 9:43 PM ET on Nov 6, 2026.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 796,
+      "already_blocked": 759,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "No further monitor blocks after finishing the 347. 37 newer list members remain unblocked pending user decision (1 followed: mdp_sec)."
     }
   ],
   "snapshots": [
@@ -301,22 +582,1504 @@
       "completeness": "point_in_time",
       "x_blocks_total": 562,
       "notes": "Total X blocks at this timestamp. List size was not re-counted here. The monitor had verified 110 new blocks, with 237 still remaining. Do not treat the day as finished."
+    },
+    {
+      "id": "snapshot:2026-11-06T21:43:00-05:00",
+      "as_of": "2026-11-06T21:43:00-05:00",
+      "source": "routine-verify",
+      "provenance": "Nov 6, 2026 9:43 PM ET completion report after finishing the approved 347 batch.",
+      "completeness": "point_in_time",
+      "list_size": 796,
+      "list_members_blocked": 759,
+      "list_members_unblocked": 37,
+      "x_blocks_total": 798,
+      "notes": "Point-in-time. 759+37=796. X blocks 798 is the full block list, not the monitor sum. Monitor complete days Nov 1-5 = 450; Nov 6 = 347. Note: 452 (AM X blocks) + 347 = 799 vs observed 798 — one-account discrepancy left unresolved."
+    },
+    {
+      "id": "snapshot:2026-11-06T23:37:39-05:00",
+      "as_of": "2026-11-06T23:37:39-05:00",
+      "source": "x-api-snapshot",
+      "provenance": "Fully paginated X list members and block list at 11:37:39 PM ET on Nov 6, 2026 via user-X reads (8 list pages, 9 block pages).",
+      "completeness": "point_in_time",
+      "list_size": 794,
+      "list_members_blocked": 757,
+      "list_members_unblocked": 37,
+      "x_blocks_total": 798,
+      "notes": "Point-in-time live recount. List https://x.com/i/lists/2116659176894071283. API member_count 794; fetched 794. 757+37=794. X blocks 798. Same 37 unblocked handles as the 9:43 PM completion report; list size fell 796→794 and blocked-on-list 759→757 since then (2 members left the list)."
     }
   ],
   "open_work": [
     {
       "id": "open:2026-11-06:approved-347",
-      "as_of": "2026-11-06T11:35:00-05:00",
-      "source": "approved-batch-verify",
-      "provenance": "Approved batch of 347 list accounts was still unfinished at 11:35 AM ET on Nov 6, 2026.",
-      "status": "interrupted",
+      "as_of": "2026-11-06T21:43:00-05:00",
+      "source": "routine-verify",
+      "provenance": "Approved batch of 347 list accounts finished at 9:43 PM ET on Nov 6, 2026.",
+      "status": "done",
       "approved_count": 347,
-      "remaining": 237,
-      "related_event_id": "monitor-new:2026-11-06:11:35",
-      "notes": "The 110 verified new blocks live only on the related event. This record is not added into monitor totals. A later routine was interrupted, so the day stays partial."
+      "remaining": 0,
+      "related_event_id": "monitor-new:2026-11-06:21:00",
+      "notes": "Closed. related new_blocks 347 + remaining 0 = approved_count 347. Prior interrupted remaining 237 is obsolete."
+    },
+    {
+      "id": "open:2026-11-06:unapproved-37",
+      "as_of": "2026-11-06T21:43:00-05:00",
+      "source": "routine-verify",
+      "provenance": "37 newer curated-list members were unblocked at 9:43 PM ET on Nov 6, 2026 and await a user decision; not blocked by the routine.",
+      "status": "open",
+      "approved_count": 37,
+      "remaining": 37,
+      "related_event_id": "monitor-new:2026-11-06:21:43",
+      "notes": "Pending user decision on 37 newer list members (not yet approved to block). related new_blocks 0 + remaining 37 = 37. Followed among them: mdp_sec. Do not auto-block."
     }
   ],
-  "accounts": [],
-  "revisions": [],
-  "applied_exports": []
+  "accounts": [
+    {
+      "id": "account:_ledandy",
+      "handle": "_ledandy",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 307,
+        "followers": 485,
+        "following": 48,
+        "created_on": "2009-05-12",
+        "display_name": "Rastignac"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:adrilopal99",
+      "handle": "Adrilopal99",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 633,
+        "followers": 354,
+        "following": 190,
+        "created_on": "2026-05-01",
+        "display_name": "Adrian Lopez Segura"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:agentikhq",
+      "handle": "AgentikHQ",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1151,
+        "followers": 7180,
+        "following": 0,
+        "created_on": "2021-12-15",
+        "display_name": "Agentik"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:antisshah",
+      "handle": "AntisShah",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 3732,
+        "followers": 447,
+        "following": 489,
+        "created_on": "2026-09-02",
+        "display_name": "Adrian"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:blackironx_007",
+      "handle": "BlackironX_007",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 574,
+        "followers": 4,
+        "following": 33,
+        "created_on": "2026-10-24",
+        "display_name": "BlackironX"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:castah_",
+      "handle": "Castah_",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 994,
+        "followers": 310,
+        "following": 392,
+        "created_on": "2016-06-11",
+        "display_name": "Cas | building AfterFirst"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:catmanyau",
+      "handle": "catmanyau",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 35830,
+        "followers": 2207,
+        "following": 358,
+        "created_on": "2021-09-19",
+        "display_name": "catman"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:cosmincraciun12",
+      "handle": "CosminCraciun12",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 149,
+        "followers": 23,
+        "following": 258,
+        "created_on": "2022-01-30",
+        "display_name": "Cosmin"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:cyril_build",
+      "handle": "cyril_build",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 239,
+        "followers": 27,
+        "following": 83,
+        "created_on": "2026-06-25",
+        "display_name": "Cyril"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:davhampl",
+      "handle": "davhampl",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1383,
+        "followers": 71,
+        "following": 193,
+        "created_on": "2025-11-08",
+        "display_name": "David Hampl"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:deeponailabs",
+      "handle": "deeponailabs",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 10813,
+        "followers": 1170,
+        "following": 1455,
+        "created_on": "2026-07-20",
+        "display_name": "Deep"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:jatinsj710",
+      "handle": "jatinsj710",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 194,
+        "followers": 54,
+        "following": 220,
+        "created_on": "2014-12-13",
+        "display_name": "Jatin Sharma"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:je4nvrg",
+      "handle": "JE4NVRG",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 3569,
+        "followers": 1053,
+        "following": 2263,
+        "created_on": "2017-08-09",
+        "display_name": "Jean Vargas"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:kennethlau12393",
+      "handle": "kennethlau12393",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 2131,
+        "followers": 753,
+        "following": 1865,
+        "created_on": "2024-07-22",
+        "display_name": "Kenneth Lau"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:lucacaponex",
+      "handle": "LucaCaponeX",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 11566,
+        "followers": 1599,
+        "following": 769,
+        "created_on": "2025-06-20",
+        "display_name": "Luca Capone | Building with AI"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:mdp_sec",
+      "handle": "mdp_sec",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 5290,
+        "followers": 5156,
+        "following": 639,
+        "created_on": "2026-03-24",
+        "display_name": "Marius du Preez"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision (followed by subject).",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:melchezadeck369",
+      "handle": "Melchezadeck369",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 469,
+        "followers": 57,
+        "following": 293,
+        "created_on": "2026-08-19",
+        "display_name": "Rock Carter"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:memoraxis",
+      "handle": "Memoraxis",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1304,
+        "followers": 26,
+        "following": 52,
+        "created_on": "2026-10-01",
+        "display_name": "Memoraxis"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:mirasynth0",
+      "handle": "MiraSynth0",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 9449,
+        "followers": 40000,
+        "following": 2918,
+        "created_on": "2026-07-19",
+        "display_name": "Mira Synth Tech"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:oneagentkey",
+      "handle": "oneagentkey",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 37,
+        "followers": 0,
+        "following": 31,
+        "created_on": "2011-08-22",
+        "display_name": "Settlement Loop"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:pengu0033",
+      "handle": "Pengu0033",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 66614,
+        "followers": 8015,
+        "following": 7540,
+        "created_on": "2023-03-25",
+        "display_name": "Mr.Pengu🐧"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:richard_kr67069",
+      "handle": "richard_kr67069",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 122,
+        "followers": 1,
+        "following": 22,
+        "created_on": "2023-06-19",
+        "display_name": "Richard M. Kring"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:robinhill85",
+      "handle": "RobinHill85",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 46435,
+        "followers": 4748,
+        "following": 2329,
+        "created_on": "2017-07-15",
+        "display_name": "Robin | Poker x AI"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:rudraxx13",
+      "handle": "rudraxx13",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 5161,
+        "followers": 658,
+        "following": 780,
+        "created_on": "2022-04-25",
+        "display_name": "Rudra Satani"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:sangurdesign",
+      "handle": "Sangurdesign",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 170,
+        "followers": 10,
+        "following": 72,
+        "created_on": "2024-10-11",
+        "display_name": "Sangur"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:sebuzdugan",
+      "handle": "sebuzdugan",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 63784,
+        "followers": 8528,
+        "following": 1917,
+        "created_on": "2024-06-19",
+        "display_name": "Sebastian Buzdugan"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:sergiomarakis",
+      "handle": "SergioMarakis",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 3660,
+        "followers": 1091,
+        "following": 1493,
+        "created_on": "2021-04-14",
+        "display_name": "Sergio Marakis"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:sudheerdotai",
+      "handle": "sudheerdotai",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 4337,
+        "followers": 275,
+        "following": 357,
+        "created_on": "2013-05-24",
+        "display_name": "Sudheer"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:surlymochan",
+      "handle": "surlymochan",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 3461,
+        "followers": 1026,
+        "following": 2669,
+        "created_on": "2026-02-21",
+        "display_name": "nick"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:syuvovo",
+      "handle": "syuvovo",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 272,
+        "followers": 20,
+        "following": 179,
+        "created_on": "2014-07-18",
+        "display_name": "Syuvo"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:techwithmatteo",
+      "handle": "TechWithMatteo",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 15182,
+        "followers": 1340,
+        "following": 331,
+        "created_on": "2020-10-23",
+        "display_name": "Tech With Matteo"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:themuscleai",
+      "handle": "themuscleai",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 978,
+        "followers": 406,
+        "following": 2382,
+        "created_on": "2023-07-18",
+        "display_name": "Muscle AI"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:vinnykapadia",
+      "handle": "vinnykapadia",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 873,
+        "followers": 132,
+        "following": 658,
+        "created_on": "2017-04-13",
+        "display_name": "Vipul Kapadia"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:wakeona",
+      "handle": "wakeona",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1401,
+        "followers": 193,
+        "following": 947,
+        "created_on": "2022-09-30",
+        "display_name": "Caleb Jimmy"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:yevloop",
+      "handle": "yevloop",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 12956,
+        "followers": 2114,
+        "following": 4287,
+        "created_on": "2023-03-23",
+        "display_name": "E_genius"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:yuvelir_22",
+      "handle": "Yuvelir_22",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1046,
+        "followers": 1639,
+        "following": 152,
+        "created_on": "2026-06-22",
+        "display_name": "Yuvelir"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    },
+    {
+      "id": "account:zyeutequebec",
+      "handle": "zyeutequebec",
+      "profile": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters looked up via X usernames API during the 2026-11-06 nightly export. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 2861,
+        "followers": 160,
+        "following": 1201,
+        "created_on": "2026-02-14",
+        "display_name": "Lacostedesigns"
+      },
+      "list_membership": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "list-snapshot",
+        "provenance": "Listed among the 37 unblocked curated-list members in the Nov 6 9:43 PM ET completion report. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-06T21:43:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Not blocked at 9:43 PM ET Nov 6 pending user decision.",
+        "state": "not_blocked",
+        "event_id": "monitor-new:2026-11-06:21:43"
+      }
+    }
+  ],
+  "revisions": [
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:events:monitor-new:2026-11-06:11:35:replace",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-06:11:35",
+      "op": "replace",
+      "previous_hash": "b909589301f39bf16968325c834e8a3efe40b0aa58b162d74e049785945705fb",
+      "next_hash": "36d4add78aaaaea06f770cdef07959d47e5b2cebd9ab6eac037a19ea73761a71"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:events:monitor-new:2026-11-06:21:00:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-06:21:00",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "c84cfc05282ee965562f139df98a5964eab631891fcd9b2a5f77720613389c66"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:events:monitor-new:2026-11-06:21:43:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-06:21:43",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "6dc651a59fce3eba32f2f322078ec9b68cc1dc86360ad6b6ea56c39ced5e558d"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:snapshots:snapshot:2026-11-06T21:43:00-05:00:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "snapshots",
+      "record_id": "snapshot:2026-11-06T21:43:00-05:00",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "e9f37a8e1a33bce1950faee7780f149374a2b2f68d3b9961183150a3ceb4352a"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:snapshots:snapshot:2026-11-06T23:37:39-05:00:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "snapshots",
+      "record_id": "snapshot:2026-11-06T23:37:39-05:00",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "d88286e0595989ff25b13f4310df9efe3f066558ebd0664e1687cabed27d01e4"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:open_work:open:2026-11-06:approved-347:replace",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "open_work",
+      "record_id": "open:2026-11-06:approved-347",
+      "op": "replace",
+      "previous_hash": "a6f69e73ba18ed3a372a37934bc0d66a6960639317c7848108a55689dfcd7bd0",
+      "next_hash": "fffc8c0d41fe2d3ef765e7a59583c199db86c4b367ad7123c6f7227765b76733"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:open_work:open:2026-11-06:unapproved-37:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "open_work",
+      "record_id": "open:2026-11-06:unapproved-37",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "9d6630d8985c74834734b3fa00324a178cd3eb5de8bb616d8d31c242787c6b34"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:blackironx_007:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:blackironx_007",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "b676ac37d65c05c05034f51b3a4aed09c6ce164509af1a7bf7b71b1ca275896e"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:memoraxis:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:memoraxis",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "0a5450159cc106c23c3d1e86d85576c237f8c4f673b339d52818d1fcd210c191"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:antisshah:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:antisshah",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "2d649607eafa15a90e7fa0ad52557d04d549fa9a0187be2c7bee6b8874b876d5"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:melchezadeck369:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:melchezadeck369",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "64b1703704d2e9273d6cd7a1969ff1d1b2d709f802b7fb5751b8185b84d83141"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:deeponailabs:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:deeponailabs",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "682a62e1e3a44aca900a93ce6ccfc5b447e698303644e95a0c64333c69528e70"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:mirasynth0:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:mirasynth0",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "4a5b1d3680688db41564ee2b62e1900235a4bf8dd6865f997d39d565151d9bc9"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:cyril_build:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:cyril_build",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "f4c9f4ded257b6a35452be2ff96e73254f5bbb1580e4dd4593c5bf5a2c22c468"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:yuvelir_22:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:yuvelir_22",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "415855289ea8ce7f0955bf46957efb81f2b1e92db773ca1c3b972d381bd61fe5"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:adrilopal99:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:adrilopal99",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "612e477a78a530a149ac7eef8b9323db8a27cf515e0dc55d1f0d82e3d15e97f0"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:mdp_sec:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:mdp_sec",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "18c535329a8319cab6b0da751bc2749f5d4b06cf84306e83e87c0a59d9389374"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:surlymochan:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:surlymochan",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "cb0e700a847bff6c03d2f950f59f744aee5932bbe5d1584486e5ea3cc62fafcd"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:zyeutequebec:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:zyeutequebec",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "7523d3cca0dc0df6874334a31e7dfff2b0322db9bfc3c9a8b710f9d3f3d384ef"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:davhampl:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:davhampl",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "6c31115f44433f6564271cc3f6f3c535661d7fcad8d06e8460c9a0076f866199"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:lucacaponex:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:lucacaponex",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "fb43c46d8fa266f3dd45cc171829e0b7e8b64b4cd56843d66cdd3730d8afe6ff"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:sangurdesign:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:sangurdesign",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "3c51224261e867e3e38ffb78ad02e0f6b0626b6eb3c8548072f47ffe8c8d6743"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:kennethlau12393:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:kennethlau12393",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "1cd9a255bb0a776d497fbd982db202056c64ef7a3f95eae05f7284eb83a3baa6"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:sebuzdugan:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:sebuzdugan",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "1859b90bf260acdb24edb37f59535a4000a037ad6090b6c4302ba27ce02cbc51"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:themuscleai:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:themuscleai",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "1059737e5c951c4b44b2a337111f2589753a55b98de05132785516fe7d74e2be"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:richard_kr67069:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:richard_kr67069",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "2d6967d8c9fa4b23261389758976ea414e65f551316f7c94bb39108f5952e321"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:pengu0033:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:pengu0033",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "05705bc388213fd24a637b37eca75eeb24b8c9d9ed3e222ae61e43b59adba41c"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:yevloop:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:yevloop",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "d1d86e032c4af9326ccdb2da022b016bfa68315a58aac20d29c9e1734083e432"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:wakeona:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:wakeona",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "2515e8ea1d92f9d8ec424475d28d8f4b16e0e10d8174ffb2372c328a0a47c148"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:rudraxx13:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:rudraxx13",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "feae1cbfd15398fa2f1af8185a30bd4a88343a4560fb9276994f40b719ee18cf"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:cosmincraciun12:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:cosmincraciun12",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "8576163268f46b7eba0835790d782ac6afb5c7475f8b434191b0f5a42bc9eb0f"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:agentikhq:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:agentikhq",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "cb2cd1e0ad923096afb673f3e5d86112966c66de9c642385e96e50eba7c304c9"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:catmanyau:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:catmanyau",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "d806c4dd85444f0873a34020983c8c0b562d752807a69abed43fb5cf3111a817"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:sergiomarakis:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:sergiomarakis",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "4f480e80c151487650428fb5e695a3d657d3bccf4c072c57e4704c931aef6a6a"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:techwithmatteo:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:techwithmatteo",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "15930ce2606e8896dc1a6121101d64b895c8caa9c1b14c7011d29c0ea69238dd"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:je4nvrg:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:je4nvrg",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "ad29623e171e8dde557ee8d7c2bc83b3baff9767fda36b2c6b4b9a01c24d28fb"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:robinhill85:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:robinhill85",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "ec5ba511bfd2cea25db276dde526eaa65dd850db647ba7009fa2bfe2d0ee5791"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:vinnykapadia:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:vinnykapadia",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "d10c362380d2d64a0fc338a7cc077109f1bba8231b519ca67470d163b4322361"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:castah_:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:castah_",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "8aaea5286e85f41801cf547166ee3745e833c8de0883e839b776811ec8e9ff41"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:jatinsj710:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:jatinsj710",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "269bb0c45a1aa27cae9a7c75ccce010a2c5c4c29b21a3740932e65757c053f7b"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:syuvovo:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:syuvovo",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "23c0bdb0c639b832fd7385d548b1d62a43b0d8b81569df74b56d901ea4248f12"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:sudheerdotai:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:sudheerdotai",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "7db640100273b8154dfa7f97b3531e303b94ffaebeaf17a16c616be208e42384"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:oneagentkey:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:oneagentkey",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "6a9ff089721f3e700a86c7cffe420dc4fb0510c70eb6b5a5f412f1a44d9960da"
+    },
+    {
+      "id": "rev:2026-11-07t0438z-gandalf:accounts:account:_ledandy:insert",
+      "at": "2026-11-07T04:43:04.340Z",
+      "export_id": "2026-11-07t0438z-gandalf",
+      "collection": "accounts",
+      "record_id": "account:_ledandy",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "2b76ac33f2f457f9d471d29088f07a6e8c4222a723f61689d80d0305811c6098"
+    }
+  ],
+  "applied_exports": [
+    {
+      "export_id": "2026-11-07t0438z-gandalf",
+      "content_hash": "54f91b2eda936cb39a31622edb4d363ffce692ebb9930150e6b24b67b4ed2c8c",
+      "applied_at": "2026-11-07T04:43:04.340Z"
+    }
+  ]
 }

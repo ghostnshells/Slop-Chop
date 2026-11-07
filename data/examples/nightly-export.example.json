@@ -16,8 +16,8 @@
       "provenance": "Example run journal entry with a zero count. Not a real observation.",
       "status": "complete",
       "new_blocks": 0,
-      "list_size": 0,
-      "already_blocked": 0,
+      "list_size": 2,
+      "already_blocked": 1,
       "handles": [],
       "handles_complete": true,
       "notes": "EXAMPLE ONLY. Replace every value from a verified log before ingest."

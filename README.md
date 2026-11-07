@@ -10,13 +10,13 @@ These are the committed observations, not a live reconciliation.
 
 | Measurement | Value | What it is |
 | --- | --- | --- |
-| Monitor, complete days Nov 1–5 | 450 | 41 + 17 + 13 + 1 + 378. Nov 1 is 40 in the morning and 1 in the evening, and excludes 7 preexisting blocks. Nov 5 is 11 + 179 + 188. |
-| Nov 6 monitor | 110, partial | Verified at 11:35 AM ET from an approved batch of 347. 237 remained. A later routine was interrupted. The day is not complete. |
-| X blocks at Nov 6, 9:00 AM ET | 452 | Point-in-time full block list. List size at that same timestamp: 775, with 428 blocked on the list and 347 not blocked. |
-| X blocks at Nov 6, 11:35 AM ET | 562 | Later timestamp. The 110 increase matches the partial verify. This page does not treat that match as a full reconciliation. |
-| X blocks at Nov 5, 11:35 PM ET | 453 | Earlier snapshot. List size 561, with 127 not blocked on the list. Blocked-on-list was not stated and is not filled in. |
+| Monitor, complete through Nov 6 | 797 | Nov 1–5 remain 450. Nov 6 is a completed 347. The earlier partial 110 is superseded and is not added again. |
+| X blocks at Nov 6, 11:37 PM ET | 798 | Latest full block list. List size at that timestamp: 794, with 757 blocked on the list and 37 not blocked. |
+| X blocks at Nov 6, 9:43 PM ET | 798 | Completion-report snapshot. List size 796, 759 blocked on the list, 37 not blocked. |
+| Pending | 37 | Newer list members not blocked, awaiting a decision. One of them, @mdp_sec, is followed. |
+| Earlier timestamps | kept | Nov 6 9:00 AM ET is still X blocks 452 and list 775. Nov 6 11:35 AM ET is still X blocks 562. Nov 5 11:35 PM ET is still X blocks 453 and list 561. |
 
-Account profiles and activity rankings are empty until a verified `accounts[]` export is ingested.
+The completion note records an unresolved one-account gap: 452 at 9:00 AM plus the completed 347 would be 799, and the observed X block list is 798. Those figures stay separate. Lifetime post counts on the 37 pending profiles are public profile counters, not measured AI slop volume. Nov 6 keeps 237 handles, so `handles_complete` is false; 90 mid-batch completions have no separate timestamps and are inside the 347.
 
 ## Preview
 

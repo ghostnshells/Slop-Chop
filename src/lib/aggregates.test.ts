@@ -10,22 +10,25 @@ const dataset = validateDataset(structuredClone(raw)).value as Dataset;
 describe("verified monitor totals", () => {
   const totals = aggregate(dataset);
 
-  it("keeps Nov 1–5 complete at 450 and Nov 6 partial at 110", () => {
+  it("keeps Nov 1–5 at 450 and counts Nov 6 once as a completed 347", () => {
     expect(totals.days.map((day) => [day.date, day.newBlocks, day.status])).toEqual([
       ["2026-11-01", 41, "complete"],
       ["2026-11-02", 17, "complete"],
       ["2026-11-03", 13, "complete"],
       ["2026-11-04", 1, "complete"],
       ["2026-11-05", 378, "complete"],
-      ["2026-11-06", 110, "partial"],
+      ["2026-11-06", 347, "complete"],
     ]);
-    expect(totals.completeNewBlocks).toBe(450);
-    expect(totals.partialNewBlocks).toBe(110);
-    expect(totals.recordedNewBlocks).toBe(560);
-    expect(totals.lastCompleteDate).toBe("2026-11-05");
+    expect(totals.completeNewBlocks).toBe(797);
+    expect(totals.partialNewBlocks).toBe(0);
+    expect(totals.recordedNewBlocks).toBe(797);
+    expect(totals.lastCompleteDate).toBe("2026-11-06");
     expect(totals.days[4]?.cumulativeComplete).toBe(450);
-    expect(totals.days[5]?.cumulativeRecorded).toBe(560);
-    expect(totals.days[5]?.cumulativeComplete).toBe(450);
+    expect(totals.days[5]?.cumulativeRecorded).toBe(797);
+    expect(totals.days[5]?.cumulativeComplete).toBe(797);
+    const superseded = dataset.events.find((event) => event.id === "monitor-new:2026-11-06:11:35");
+    expect(superseded?.status).toBe("superseded");
+    expect(superseded?.new_blocks).toBe(110);
   });
 
   it("does not fold snapshots, unfinished batch size, or preexisting blocks into the monitor sum", () => {
@@ -35,8 +38,8 @@ describe("verified monitor totals", () => {
     mutated.open_work[0]!.remaining = 99999;
     mutated.monitoring.preexisting_blocked_excluded = 70;
     const next = aggregate(mutated);
-    expect(next.recordedNewBlocks).toBe(560);
-    expect(next.completeNewBlocks).toBe(450);
+    expect(next.recordedNewBlocks).toBe(797);
+    expect(next.completeNewBlocks).toBe(797);
     expect(next.preexistingBlockedExcluded).toBe(70);
   });
 

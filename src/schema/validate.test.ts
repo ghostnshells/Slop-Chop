@@ -12,7 +12,10 @@ describe("dataset contract", () => {
   it("accepts the seeded dataset and the example export", () => {
     const seeded = validateDataset(raw);
     expect(seeded.ok, seeded.errors.map((error) => `${error.path} ${error.message}`).join("\n")).toBe(true);
-    expect(seeded.value?.accounts).toEqual([]);
+    expect(seeded.value?.accounts).toHaveLength(37);
+    expect(seeded.value?.events.find((event) => event.id === "monitor-new:2026-11-06:11:35")?.status).toBe(
+      "superseded",
+    );
     const inbox = validateInbox(example);
     expect(inbox.ok, inbox.errors.map((error) => error.message).join("\n")).toBe(true);
   });
@@ -40,6 +43,18 @@ describe("dataset contract", () => {
     const result = validateDataset(next);
     expect(result.ok).toBe(false);
     expect(result.errors.some((error) => error.message.includes("approved_count"))).toBe(true);
+  });
+
+  it("allows an unblocked gap when it does not exceed list size", () => {
+    const next = dataset();
+    const event = next.events[0]!;
+    event.new_blocks = 30;
+    event.handles_complete = false;
+    expect(validateDataset(next).ok).toBe(true);
+    event.new_blocks = 80;
+    expect(validateDataset(next).errors.some((error) => error.message.includes("cannot exceed"))).toBe(
+      true,
+    );
   });
 
   it("rejects a negative count at the schema layer", () => {

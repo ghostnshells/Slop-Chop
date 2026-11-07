@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import rawDefault from "../data/dataset.json";
 import { aggregate } from "./lib/aggregates";
-import { formatAsOf, formatCount, formatDay } from "./lib/format";
+import { formatAsOf, formatCount, formatDay, formatSlot } from "./lib/format";
 import type { Dataset, Snapshot } from "./lib/types";
 import { validateDataset } from "./schema/validate";
 import { DailyChart } from "./components/DailyChart";
@@ -235,10 +235,9 @@ function Monitor({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
           <h2 id="snapshots-heading">Snapshots and pending work</h2>
           <p>
             Every figure below is tied to a timestamp. A later snapshot does not erase an earlier
-            one, and none of them are added to the monitor’s newly blocked total. The gap between
-            the Nov 6 9:00 AM ET X block count and the 11:35 AM ET count is 110, the same figure as
-            the verified partial batch. That match is noted. It is not a reconciliation of the
-            whole block list.
+            one, and none of them are added to the monitor’s newly blocked total. Where an X block
+            timestamp does not match the monitor sum, the snapshot note records the gap. That
+            arithmetic is not a reconciliation.
           </p>
           <Snapshots dataset={dataset} />
         </section>
@@ -288,8 +287,12 @@ function Monitor({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
               {dataset.monitoring.preexisting_note}
             </li>
             <li>
-              Nov 6, 2026 is partial: 110 of an approved 347 were verified at 11:35 AM ET, 237
-              remained, and a later routine was interrupted.
+              {dataset.events.filter((event) => event.status === "superseded").length === 0
+                ? "No monitor row is superseded."
+                : `Superseded rows stay in the timeline and are left out of totals: ${dataset.events
+                    .filter((event) => event.status === "superseded")
+                    .map((event) => `${formatDay(event.date)} ${formatSlot(event.slot)} (${formatCount(event.new_blocks)})`)
+                    .join(", ")}.`}
             </li>
             <li>
               Curated list membership is a community assessment, not independent evidence that an

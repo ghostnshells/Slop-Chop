@@ -83,9 +83,9 @@ function Pending({ item, dataset }: { item: OpenWork; dataset: Dataset }) {
         <time dateTime={item.as_of}>{formatAsOf(item.as_of)}</time>
       </p>
       <p>
-        Approved batch {formatCount(item.approved_count)}. Verified on the related monitor event:{" "}
-        {event ? formatCount(event.new_blocks) : "missing"}. Remaining at this timestamp:{" "}
-        {formatCount(item.remaining)}. The remaining count is not added into the chart.
+        Open-work count {formatCount(item.approved_count)}. Related monitor event:{" "}
+        {event ? formatCount(event.new_blocks) : "missing"} newly blocked. Remaining at this
+        timestamp: {formatCount(item.remaining)}. The remaining count is not added into the chart.
       </p>
       <p>
         <span className="kicker">Provenance</span> {item.provenance}

@@ -58,7 +58,7 @@ If the slot itself was wrong, send one export that sets the old event to `supers
 - `snapshots[].list_size`, `list_members_blocked`, `list_members_unblocked` — curated list at `as_of`. When all three are present they must sum.
 - `open_work.approved_count` and `remaining` — batch progress. `related event new_blocks + remaining` must equal `approved_count`. Those fields are not added on top of the event.
 
-When `list_size` and `already_blocked` are both present on an event, `already_blocked + new_blocks` must equal `list_size`. Omit a field rather than inventing it. The Nov 5 11:35 PM snapshot leaves blocked-on-list empty for that reason.
+When `list_size` and `already_blocked` are both present on an event, `already_blocked + new_blocks` cannot exceed `list_size`. They are equal when that run blocked every remaining member. A later verify can record `new_blocks: 0` while newer members are still unblocked; the gap belongs on the same-time snapshot as `list_members_unblocked`, and those three figures must sum to `list_size`. Omit a field rather than inventing it. The Nov 5 11:35 PM snapshot leaves blocked-on-list empty for that reason.
 
 `handles_complete: true` means `handles` lists every account in `new_blocks`. Otherwise send `[]` or a partial list no longer than `new_blocks`, and `handles_complete: false`. The number is still authoritative.
 

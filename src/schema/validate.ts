@@ -79,11 +79,11 @@ function eventIssues(event: MonitorEvent): SchemaIssue[] {
   if (
     presentCount(event.list_size) &&
     presentCount(event.already_blocked) &&
-    event.already_blocked + event.new_blocks !== event.list_size
+    event.already_blocked + event.new_blocks > event.list_size
   ) {
     issues.push({
       path: `/events/${event.id}`,
-      message: "already_blocked + new_blocks must equal list_size when all three are present",
+      message: "already_blocked + new_blocks cannot exceed list_size",
     });
   }
   return issues;
@@ -107,6 +107,39 @@ function snapshotIssues(snapshot: Snapshot): SchemaIssue[] {
       path: `/snapshots/${snapshot.id}`,
       message: "list members blocked + unblocked must equal list_size when all three are present",
     });
+  }
+  return issues;
+}
+
+function eventSnapshotIssues(events: MonitorEvent[], snapshots: Snapshot[]): SchemaIssue[] {
+  const issues: SchemaIssue[] = [];
+  for (const event of events) {
+    if (!presentCount(event.list_size) || !presentCount(event.already_blocked)) continue;
+    const snapshot = snapshots.find((item) => item.as_of === event.as_of);
+    if (!snapshot || !presentCount(snapshot.list_members_unblocked)) continue;
+    const blockedAfter = event.already_blocked + event.new_blocks;
+    if (presentCount(snapshot.list_size) && snapshot.list_size !== event.list_size) {
+      issues.push({
+        path: `/events/${event.id}`,
+        message: `list_size ${event.list_size} does not match snapshot ${snapshot.id}`,
+      });
+    }
+    if (
+      presentCount(snapshot.list_members_blocked) &&
+      snapshot.list_members_blocked !== blockedAfter
+    ) {
+      issues.push({
+        path: `/events/${event.id}`,
+        message: `already_blocked + new_blocks (${blockedAfter}) does not match blocked-on-list on ${snapshot.id}`,
+      });
+    }
+    if (blockedAfter + snapshot.list_members_unblocked !== event.list_size) {
+      issues.push({
+        path: `/events/${event.id}`,
+        message:
+          "already_blocked + new_blocks + same-time snapshot unblocked must equal list_size",
+      });
+    }
   }
   return issues;
 }
@@ -160,6 +193,7 @@ export function semanticDatasetIssues(dataset: Dataset): SchemaIssue[] {
 
   for (const event of dataset.events) issues.push(...eventIssues(event));
   for (const snapshot of dataset.snapshots) issues.push(...snapshotIssues(snapshot));
+  issues.push(...eventSnapshotIssues(dataset.events, dataset.snapshots));
 
   const activeSlot = new Set<string>();
   for (const event of dataset.events) {
@@ -212,6 +246,7 @@ export function semanticInboxIssues(inbox: InboxExport): SchemaIssue[] {
   );
   for (const event of events) issues.push(...eventIssues(event));
   for (const snapshot of snapshots) issues.push(...snapshotIssues(snapshot));
+  issues.push(...eventSnapshotIssues(events, snapshots));
   for (const account of accounts) issues.push(...accountIssues(account));
 
   const eventsById = new Map(events.map((event) => [event.id, event]));

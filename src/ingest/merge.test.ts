@@ -39,13 +39,14 @@ function inbox(exportId: string, events: MonitorEvent[]): InboxExport {
 
 describe("idempotent ingest", () => {
   const now = new Date("2026-11-07T16:00:00Z");
+  const baseTotal = aggregate(base).completeNewBlocks;
   const first = mergeDataset(base, inbox("2026-11-07.test-add", [event(3)]), now);
 
   it("applies a new event once and ignores an exact resubmit", () => {
     const second = mergeDataset(first, inbox("2026-11-07.test-add", [event(3)]), new Date("2026-11-08T00:00:00Z"));
     expect(contentHash(second)).toBe(contentHash(first));
-    expect(second.applied_exports).toHaveLength(1);
-    expect(aggregate(first).completeNewBlocks).toBe(453);
+    expect(second.applied_exports).toHaveLength(base.applied_exports.length + 1);
+    expect(aggregate(first).completeNewBlocks).toBe(baseTotal + 3);
     expect(aggregate(second).recordedNewBlocks).toBe(aggregate(first).recordedNewBlocks);
   });
 
@@ -56,13 +57,13 @@ describe("idempotent ingest", () => {
       new Date("2026-11-07T18:00:00Z"),
     );
     expect(fixed.events.filter((item) => item.date === "2026-11-07")).toHaveLength(1);
-    expect(aggregate(fixed).completeNewBlocks).toBe(454);
+    expect(aggregate(fixed).completeNewBlocks).toBe(baseTotal + 4);
     expect(fixed.revisions.some((revision) => revision.op === "replace")).toBe(true);
   });
 
   it("refuses to reuse an export id for a different body", () => {
     expect(() => mergeDataset(first, inbox("2026-11-07.test-add", [event(9)]))).toThrow(IngestError);
-    expect(aggregate(first).completeNewBlocks).toBe(453);
+    expect(aggregate(first).completeNewBlocks).toBe(baseTotal + 3);
   });
 
   it("keeps a superseded row without counting it beside its replacement", () => {
