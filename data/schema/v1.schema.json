@@ -1,0 +1,373 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://slop-chop.local/schema/v1.json",
+  "title": "Slop-Chop block monitor data contract",
+  "description": "Version 1.0.0. Calendar dates and slots are America/New_York. Monitor newly-blocked totals are the sum of non-superseded monitor_new_blocks events. Snapshots, open-work approved/remaining counts, and preexisting exclusions are not added into that sum. Public lifetime post counters are profile metadata, not measured AI slop volume. List membership is a community assessment, not independent evidence.",
+  "$defs": {
+    "source": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,79}$",
+      "description": "Stable slug for where the observation came from. Not a URL and not a credential."
+    },
+    "provenance": {
+      "type": "string",
+      "minLength": 12,
+      "maxLength": 500,
+      "description": "One sentence naming the observation a person can audit."
+    },
+    "notes": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "nullableCount": {
+      "anyOf": [
+        { "type": "integer", "minimum": 0, "maximum": 1000000 },
+        { "type": "null" }
+      ]
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "date",
+        "slot",
+        "as_of",
+        "source",
+        "provenance",
+        "status",
+        "new_blocks",
+        "handles",
+        "handles_complete",
+        "notes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^monitor-new:\\d{4}-\\d{2}-\\d{2}:\\d{2}:\\d{2}(?::[a-z0-9-]{1,32})?$",
+          "description": "Stable id. Prefer monitor-new:YYYY-MM-DD:HH:MM. Reuse the same id to correct a run. A suffix is only for keeping a superseded copy beside a replacement."
+        },
+        "kind": { "const": "monitor_new_blocks" },
+        "date": { "type": "string", "format": "date" },
+        "slot": {
+          "type": "string",
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "description": "Local time HH:MM in America/New_York."
+        },
+        "as_of": { "type": "string", "format": "date-time" },
+        "source": { "$ref": "#/$defs/source" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "status": {
+          "enum": ["complete", "partial", "superseded"],
+          "description": "partial days are unfinished. superseded rows stay visible and are excluded from totals."
+        },
+        "new_blocks": {
+          "$ref": "#/$defs/count",
+          "description": "Authoritative newly blocked count for this run. Not derived from handles when handles_complete is false."
+        },
+        "list_size": { "$ref": "#/$defs/nullableCount" },
+        "already_blocked": { "$ref": "#/$defs/nullableCount" },
+        "approval_id": {
+          "anyOf": [
+            { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,40}$" },
+            { "type": "null" }
+          ]
+        },
+        "handles": {
+          "type": "array",
+          "maxItems": 2000,
+          "items": { "type": "string", "pattern": "^[A-Za-z0-9_]{1,30}$" }
+        },
+        "handles_complete": {
+          "type": "boolean",
+          "description": "True only when handles lists every account included in new_blocks."
+        },
+        "notes": { "$ref": "#/$defs/notes" }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "as_of", "source", "provenance", "completeness", "notes"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Must equal snapshot: plus the as_of string."
+        },
+        "as_of": { "type": "string", "format": "date-time" },
+        "source": { "$ref": "#/$defs/source" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "completeness": { "const": "point_in_time" },
+        "list_size": { "$ref": "#/$defs/nullableCount" },
+        "list_members_blocked": { "$ref": "#/$defs/nullableCount" },
+        "list_members_unblocked": { "$ref": "#/$defs/nullableCount" },
+        "x_blocks_total": {
+          "$ref": "#/$defs/nullableCount",
+          "description": "Full X block-list size at as_of. Not the monitor newly-blocked sum."
+        },
+        "notes": { "$ref": "#/$defs/notes" }
+      }
+    },
+    "openWork": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "as_of",
+        "source",
+        "provenance",
+        "status",
+        "approved_count",
+        "remaining",
+        "related_event_id",
+        "notes"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^open:[a-z0-9][a-z0-9:-]{0,80}$" },
+        "as_of": { "type": "string", "format": "date-time" },
+        "source": { "$ref": "#/$defs/source" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "status": { "enum": ["open", "interrupted", "done"] },
+        "approved_count": { "$ref": "#/$defs/count" },
+        "remaining": { "$ref": "#/$defs/count" },
+        "related_event_id": { "type": "string" },
+        "notes": { "$ref": "#/$defs/notes" }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["as_of", "source", "provenance"],
+      "properties": {
+        "as_of": { "type": "string", "format": "date-time" },
+        "source": { "$ref": "#/$defs/source" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "lifetime_posts": {
+          "$ref": "#/$defs/nullableCount",
+          "description": "Public lifetime post counter. Not measured AI slop volume."
+        },
+        "followers": { "$ref": "#/$defs/nullableCount" },
+        "following": { "$ref": "#/$defs/nullableCount" },
+        "created_on": {
+          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+        },
+        "display_name": {
+          "anyOf": [{ "type": "string", "maxLength": 80 }, { "type": "null" }]
+        }
+      }
+    },
+    "listMembership": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["as_of", "source", "provenance", "on_list"],
+      "description": "Community assessment of curated-list membership. Not independent evidence.",
+      "properties": {
+        "as_of": { "type": "string", "format": "date-time" },
+        "source": { "$ref": "#/$defs/source" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "on_list": { "type": "boolean" }
+      }
+    },
+    "block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["as_of", "source", "provenance", "state"],
+      "properties": {
+        "as_of": { "type": "string", "format": "date-time" },
+        "source": { "$ref": "#/$defs/source" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "state": { "enum": ["blocked", "not_blocked", "unknown"] },
+        "event_id": {
+          "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+        }
+      }
+    },
+    "account": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "handle"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^account:[a-z0-9_]{1,30}$",
+          "description": "account: plus the handle in lowercase. Reuse it to update the same account."
+        },
+        "handle": { "type": "string", "pattern": "^[A-Za-z0-9_]{1,30}$" },
+        "profile": { "anyOf": [{ "$ref": "#/$defs/profile" }, { "type": "null" }] },
+        "list_membership": {
+          "anyOf": [{ "$ref": "#/$defs/listMembership" }, { "type": "null" }]
+        },
+        "block": { "anyOf": [{ "$ref": "#/$defs/block" }, { "type": "null" }] }
+      }
+    },
+    "revision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "at",
+        "export_id",
+        "collection",
+        "record_id",
+        "op",
+        "previous_hash",
+        "next_hash"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 3, "maxLength": 200 },
+        "at": { "type": "string", "format": "date-time" },
+        "export_id": { "type": "string" },
+        "collection": { "enum": ["events", "snapshots", "open_work", "accounts"] },
+        "record_id": { "type": "string" },
+        "op": { "enum": ["insert", "replace"] },
+        "previous_hash": {
+          "anyOf": [{ "type": "string", "pattern": "^[a-f0-9]{64}$" }, { "type": "null" }]
+        },
+        "next_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "appliedExport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["export_id", "content_hash", "applied_at"],
+      "properties": {
+        "export_id": { "type": "string" },
+        "content_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "applied_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "dataset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "dataset_id",
+        "updated_at",
+        "compiler",
+        "provenance",
+        "subject",
+        "list",
+        "monitoring",
+        "events",
+        "snapshots",
+        "open_work",
+        "accounts",
+        "revisions",
+        "applied_exports"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0.0" },
+        "dataset_id": { "const": "slop-chop.block-monitor" },
+        "updated_at": { "type": "string", "format": "date-time" },
+        "compiler": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "version"],
+          "properties": {
+            "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+            "version": { "type": "string", "minLength": 1, "maxLength": 40 }
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["summary", "sources"],
+          "properties": {
+            "summary": { "type": "string", "minLength": 12, "maxLength": 1000 },
+            "sources": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "minLength": 3, "maxLength": 300 }
+            }
+          }
+        },
+        "subject": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["handle"],
+          "properties": {
+            "handle": { "type": "string", "pattern": "^[A-Za-z0-9_]{1,30}$" },
+            "display_name": {
+            "anyOf": [{ "type": "string", "maxLength": 80 }, { "type": "null" }]
+          }
+          }
+        },
+        "list": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "description"],
+          "properties": {
+            "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+            "description": { "type": "string", "minLength": 12, "maxLength": 500 },
+            "url": {
+              "anyOf": [{ "type": "string", "format": "uri" }, { "type": "null" }]
+            }
+          }
+        },
+        "monitoring": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "started_on",
+            "timezone",
+            "preexisting_blocked_excluded",
+            "preexisting_note"
+          ],
+          "properties": {
+            "started_on": { "type": "string", "format": "date" },
+            "timezone": { "const": "America/New_York" },
+            "preexisting_blocked_excluded": { "$ref": "#/$defs/count" },
+            "preexisting_note": { "type": "string", "minLength": 12, "maxLength": 500 }
+          }
+        },
+        "events": { "type": "array", "items": { "$ref": "#/$defs/event" } },
+        "snapshots": { "type": "array", "items": { "$ref": "#/$defs/snapshot" } },
+        "open_work": { "type": "array", "items": { "$ref": "#/$defs/openWork" } },
+        "accounts": { "type": "array", "items": { "$ref": "#/$defs/account" } },
+        "revisions": { "type": "array", "items": { "$ref": "#/$defs/revision" } },
+        "applied_exports": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/appliedExport" }
+        }
+      }
+    },
+    "inboxExport": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "One nightly export. Place the file at data/inbox/<export_id>.json. Re-submitting the same export_id and body is a no-op. A new export_id upserts records by their stable ids and does not add a second copy.",
+      "required": [
+        "schema_version",
+        "export_id",
+        "exported_at",
+        "exported_by",
+        "source",
+        "provenance"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0.0" },
+        "export_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._:-]{2,80}$"
+        },
+        "exported_at": { "type": "string", "format": "date-time" },
+        "exported_by": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]{0,40}$"
+        },
+        "source": { "$ref": "#/$defs/source" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "events": { "type": "array", "items": { "$ref": "#/$defs/event" } },
+        "snapshots": { "type": "array", "items": { "$ref": "#/$defs/snapshot" } },
+        "open_work": { "type": "array", "items": { "$ref": "#/$defs/openWork" } },
+        "accounts": { "type": "array", "items": { "$ref": "#/$defs/account" } }
+      }
+    }
+  }
+}
