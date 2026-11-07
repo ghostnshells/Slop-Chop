@@ -1,67 +1,59 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
-import type { Account } from "../lib/types";
+import type { Poster } from "../lib/posters";
 import { Explorer } from "./Explorer";
-import { Rankings } from "./Rankings";
+import { PosterChart } from "./PosterChart";
 
-const accounts: Account[] = [
+const posters: Poster[] = [
   {
     id: "account:alpha",
     handle: "alpha",
-    profile: {
-      as_of: "2026-11-06T09:00:00-05:00",
-      source: "public-profile",
-      provenance: "Fixture profile. Lifetime posts are not AI slop volume.",
-      lifetime_posts: 12,
-      followers: 40,
-      following: 2,
-      created_on: "2021-02-02",
-    },
-    list_membership: {
-      as_of: "2026-11-06T09:00:00-05:00",
-      source: "list-snapshot",
-      provenance: "Fixture membership is a community assessment.",
-      on_list: true,
-    },
-    block: {
-      as_of: "2026-11-06T09:00:00-05:00",
-      source: "monitor-event",
-      provenance: "Fixture block state.",
-      state: "blocked",
-    },
+    displayName: "Alpha",
+    lifetimePosts: 12,
+    followers: 40,
+    following: 2,
+    createdOn: "2021-02-02",
+    profileAsOf: "2026-11-06T09:00:00-05:00",
+    blockedOn: "2026-11-06",
+    blockState: "blocked",
+    onList: "yes",
   },
   {
     id: "account:beta",
     handle: "beta",
-    profile: {
-      as_of: "2026-11-06T09:00:00-05:00",
-      source: "public-profile",
-      provenance: "Fixture profile with fewer followers.",
-      lifetime_posts: 90,
-      followers: 3,
-      following: 4,
-      created_on: "2023-03-03",
-    },
+    displayName: "Beta",
+    lifetimePosts: 90,
+    followers: 3,
+    following: 4,
+    createdOn: "2023-03-03",
+    profileAsOf: "2026-11-06T09:00:00-05:00",
+    blockedOn: null,
+    blockState: "not_blocked",
+    onList: "unknown",
   },
 ];
 
-describe("explorer and rankings", () => {
-  it("filters imported accounts and labels lifetime posts as a public counter", async () => {
+describe("explorer and poster chart", () => {
+  it("filters imported accounts, shows avatars, and charts public counters", async () => {
     const user = userEvent.setup();
+    const onSelect = () => {};
     render(
       <>
-        <Explorer accounts={accounts} />
-        <Rankings accounts={accounts} />
+        <Explorer posters={posters} selected={null} onSelect={onSelect} />
+        <PosterChart posters={posters} selected={null} onSelect={onSelect} />
       </>,
     );
 
     expect(screen.getAllByText(/not measured AI slop volume/i).length).toBeGreaterThan(0);
-    expect(screen.getByRole("link", { name: "@alpha" })).toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: "@alpha" }).length).toBeGreaterThan(0);
+    expect(document.querySelectorAll(".avatar-wrap").length).toBeGreaterThan(0);
     await user.type(screen.getByRole("searchbox", { name: "Search handle" }), "beta");
     expect(screen.queryByRole("link", { name: "@alpha" })).not.toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "@beta" })).toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: "@beta" }).length).toBeGreaterThan(0);
     expect(screen.getByRole("columnheader", { name: /Lifetime posts \(public profile\)/ })).toBeInTheDocument();
-    expect(screen.getByRole("list", { name: /Public lifetime posts ranking/ })).toHaveTextContent("@beta");
+    expect(
+      screen.getByRole("button", { name: /@beta, 90 posts, 3 followers, open/ }),
+    ).toBeInTheDocument();
   });
 });
