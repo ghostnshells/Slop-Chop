@@ -10,13 +10,13 @@ These are the committed observations, not a live reconciliation.
 
 | Measurement | Value | What it is |
 | --- | --- | --- |
-| Monitor, complete through Nov 6 | 797 | Nov 1–5 remain 450. Nov 6 is a completed 347. The earlier partial 110 is superseded and is not added again. |
-| X blocks at Nov 6, 11:37 PM ET | 798 | Latest full block list. List size at that timestamp: 794, with 757 blocked on the list and 37 not blocked. |
-| X blocks at Nov 6, 9:43 PM ET | 798 | Completion-report snapshot. List size 796, 759 blocked on the list, 37 not blocked. |
-| Pending | 37 | Newer list members not blocked, awaiting a decision. One of them, @mdp_sec, is followed. |
-| Earlier timestamps | kept | Nov 6 9:00 AM ET is still X blocks 452 and list 775. Nov 6 11:35 AM ET is still X blocks 562. Nov 5 11:35 PM ET is still X blocks 453 and list 561. |
+| Monitor through Nov 7 | 861 | Nov 1–6 remain 797. Nov 7 recorded runs add 64. Verified only through about 11:34 PM ET, not through midnight. |
+| X blocks at Nov 7, 11:33 PM ET | 859 | Latest full block list. List size 811, all blocked on the list, 0 unblocked. Not the monitor sum. |
+| Nov 7 same run | 38 | 37 previously pending accounts, including @mdp_sec, plus @hiimsimsas. The 16:13 row is bookkeeping for that extra account, not a separate observed minute. |
+| Pending | none | The Nov 6 unapproved-37 work is closed. |
+| Earlier timestamps | kept | Including Nov 6 11:37 PM ET at X blocks 798 and list 794. |
 
-The completion note records an unresolved one-account gap: 452 at 9:00 AM plus the completed 347 would be 799, and the observed X block list is 798. Those figures stay separate. Lifetime post counts on the 37 pending profiles are public profile counters, not measured AI slop volume. Nov 6 keeps 237 handles, so `handles_complete` is false; 90 mid-batch completions have no separate timestamps and are inside the 347.
+Nov 6 still has its unresolved one-account gap (452 at 9:00 AM plus 347 would be 799; observed X blocks were 798) and 237 of 347 handles. Lifetime post counts remain public profile counters, not measured AI slop volume. People who left the list stay blocked.
 
 ## Preview
 

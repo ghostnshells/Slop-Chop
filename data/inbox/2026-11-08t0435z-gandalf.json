@@ -1,0 +1,2050 @@
+{
+  "schema_version": "1.0.0",
+  "export_id": "2026-11-08t0435z-gandalf",
+  "exported_at": "2026-11-08T04:35:33Z",
+  "exported_by": "gandalf",
+  "source": "grok-bot-verified-log",
+  "provenance": "Nightly export of Nov 7, 2026 verified Block AI slop list run reports, the approved-37 completion report, and a fully paginated live X list/block read at about 11:34 PM ET.",
+  "events": [
+    {
+      "id": "monitor-new:2026-11-07:09:09",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "09:09",
+      "as_of": "2026-11-07T09:09:00-05:00",
+      "source": "routine-report",
+      "provenance": "Nov 7, 2026 9 AM ET Block AI slop list run report (ai-slop-run-2026-11-07-am) listing the accounts it newly blocked.",
+      "status": "complete",
+      "new_blocks": 5,
+      "list_size": 793,
+      "already_blocked": 751,
+      "handles": [
+        "StencilHaggai",
+        "Novatechinfo",
+        "faqdev",
+        "MeisterCoins",
+        "sathya_partha"
+      ],
+      "handles_complete": true,
+      "notes": "X blocks 796 before and 801 after. 37 newer members stayed unblocked pending the user decision (1 followed: mdp_sec). The 9:09 slot is the rounded minute written on the run report, not a second-level observation."
+    },
+    {
+      "id": "monitor-new:2026-11-07:15:10",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "15:10",
+      "as_of": "2026-11-07T15:10:00-05:00",
+      "source": "routine-report",
+      "provenance": "Nov 7, 2026 3 PM ET Block AI slop list run report (ai-slop-run-2026-11-07-pm) listing the account it newly blocked.",
+      "status": "complete",
+      "new_blocks": 1,
+      "list_size": 793,
+      "already_blocked": 755,
+      "handles": [
+        "IronRedSandHive"
+      ],
+      "handles_complete": true,
+      "notes": "37 pending members still unblocked at this run. Blocked-on-list 755 before this run vs 756 after the 9 AM run: one blocked member appears to have left the list in between (not separately journaled). The 3:10 slot is the rounded minute written on the run report, not a second-level observation."
+    },
+    {
+      "id": "monitor-new:2026-11-07:16:13",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "16:13",
+      "as_of": "2026-11-07T16:13:54-05:00",
+      "source": "approved-batch-verify",
+      "provenance": "Same run as monitor-new:2026-11-07:16:14. Recorded window 4:13:54–4:14:02 PM ET on Nov 7, 2026. This row is not a separately observed minute.",
+      "status": "complete",
+      "new_blocks": 1,
+      "handles": [
+        "hiimsimsas"
+      ],
+      "handles_complete": true,
+      "notes": "Same-run split of 38 blocks (X blocks 802 to 840). 37 were the approved batch on the 16:14 row. @hiimsimsas was the other block in that run and was not part of the approval. Per-account block seconds were not recorded. Slot 16:13 is a bookkeeping id so the approved-37 open_work row can match a 37-count event; it is not @hiimsimsas's observed block minute."
+    },
+    {
+      "id": "monitor-new:2026-11-07:16:14",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "16:14",
+      "as_of": "2026-11-07T16:14:02-05:00",
+      "source": "approved-batch-verify",
+      "provenance": "Nov 7, 2026 approved-37 completion inside the same 4:13:54–4:14:02 PM ET run that also blocked @hiimsimsas. Verified against a full block-list read. Per-account seconds were not recorded.",
+      "status": "complete",
+      "new_blocks": 37,
+      "approval_id": "approved-37",
+      "handles": [
+        "BlackironX_007",
+        "Memoraxis",
+        "AntisShah",
+        "Melchezadeck369",
+        "deeponailabs",
+        "MiraSynth0",
+        "cyril_build",
+        "Yuvelir_22",
+        "Adrilopal99",
+        "mdp_sec",
+        "surlymochan",
+        "zyeutequebec",
+        "davhampl",
+        "LucaCaponeX",
+        "Sangurdesign",
+        "kennethlau12393",
+        "sebuzdugan",
+        "themuscleai",
+        "richard_kr67069",
+        "Pengu0033",
+        "yevloop",
+        "wakeona",
+        "rudraxx13",
+        "CosminCraciun12",
+        "AgentikHQ",
+        "catmanyau",
+        "SergioMarakis",
+        "TechWithMatteo",
+        "JE4NVRG",
+        "RobinHill85",
+        "vinnykapadia",
+        "Castah_",
+        "jatinsj710",
+        "syuvovo",
+        "sudheerdotai",
+        "oneagentkey",
+        "_ledandy"
+      ],
+      "handles_complete": true,
+      "notes": "All 37 approved block calls returned blocking=true, including followed @mdp_sec. List fully paginated at 794 with 0 remaining unblocked. X blocks 802 before and 840 after that same run (these 37 plus @hiimsimsas). The 16:13 row is the same run, not a separate observed minute."
+    },
+    {
+      "id": "monitor-new:2026-11-07:17:25",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "17:25",
+      "as_of": "2026-11-07T17:25:37-05:00",
+      "source": "routine-report",
+      "provenance": "Nov 7, 2026 17:25 ET Block AI slop list run report (ai-slop-run-2026-11-07-1723) with newly joined list members it blocked.",
+      "status": "complete",
+      "new_blocks": 1,
+      "list_size": 794,
+      "already_blocked": 793,
+      "handles": [
+        "alexlee20122022"
+      ],
+      "handles_complete": true,
+      "notes": "Fully paginated list run; X blocks 840 before and 841 after."
+    },
+    {
+      "id": "monitor-new:2026-11-07:17:54",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "17:54",
+      "as_of": "2026-11-07T17:54:07-05:00",
+      "source": "routine-report",
+      "provenance": "Nov 7, 2026 17:54 ET Block AI slop list run report (ai-slop-run-2026-11-07-1752) with newly joined list members it blocked.",
+      "status": "complete",
+      "new_blocks": 1,
+      "list_size": 795,
+      "already_blocked": 794,
+      "handles": [
+        "babelofficiall"
+      ],
+      "handles_complete": true,
+      "notes": "Fully paginated list run; X blocks 840 before and 841 after. Before-count 840 (not 841) because @AlexysObry93322, not on the list, left the block set."
+    },
+    {
+      "id": "monitor-new:2026-11-07:18:21",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "18:21",
+      "as_of": "2026-11-07T18:21:19-05:00",
+      "source": "routine-report",
+      "provenance": "Nov 7, 2026 18:21 ET Block AI slop list run report (ai-slop-run-2026-11-07-1818) with newly joined list members it blocked.",
+      "status": "complete",
+      "new_blocks": 3,
+      "list_size": 798,
+      "already_blocked": 795,
+      "handles": [
+        "cslelouch",
+        "atakantech",
+        "sudoaptaj"
+      ],
+      "handles_complete": true,
+      "notes": "Fully paginated list run; X blocks 841 before and 844 after."
+    },
+    {
+      "id": "monitor-new:2026-11-07:19:10",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "19:10",
+      "as_of": "2026-11-07T19:10:57-05:00",
+      "source": "routine-report",
+      "provenance": "Nov 7, 2026 19:10 ET Block AI slop list run report (ai-slop-run-2026-11-07-1908) with newly joined list members it blocked.",
+      "status": "complete",
+      "new_blocks": 9,
+      "list_size": 807,
+      "already_blocked": 798,
+      "handles": [
+        "probandadev",
+        "TinyRouterHQ",
+        "nickintheloop",
+        "TheSilkRaven",
+        "gateless_zen",
+        "bitdynamics_ca",
+        "KhareApurv",
+        "DavidWever",
+        "isbkch"
+      ],
+      "handles_complete": true,
+      "notes": "Fully paginated list run; X blocks 844 before and 853 after."
+    },
+    {
+      "id": "monitor-new:2026-11-07:19:18",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "19:18",
+      "as_of": "2026-11-07T19:18:30-05:00",
+      "source": "routine-report",
+      "provenance": "Nov 7, 2026 19:18 ET Block AI slop list run report (ai-slop-run-2026-11-07-1916) with newly joined list members it blocked.",
+      "status": "complete",
+      "new_blocks": 4,
+      "list_size": 811,
+      "already_blocked": 807,
+      "handles": [
+        "HongJinHeHK",
+        "kamrangasanli",
+        "xiaoguodunzhou",
+        "Maxoncheq"
+      ],
+      "handles_complete": true,
+      "notes": "Fully paginated list run; X blocks 853 before and 857 after."
+    },
+    {
+      "id": "monitor-new:2026-11-07:19:37",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "19:37",
+      "as_of": "2026-11-07T19:37:01-05:00",
+      "source": "routine-report",
+      "provenance": "Nov 7, 2026 19:37 ET Block AI slop list run report (ai-slop-run-2026-11-07-1935) with newly joined list members it blocked.",
+      "status": "complete",
+      "new_blocks": 2,
+      "list_size": 813,
+      "already_blocked": 811,
+      "handles": [
+        "Babayeer",
+        "FranciAnjinho"
+      ],
+      "handles_complete": true,
+      "notes": "Fully paginated list run; X blocks 857 before and 859 after."
+    },
+    {
+      "id": "monitor-new:2026-11-07:23:21",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-07",
+      "slot": "23:21",
+      "as_of": "2026-11-07T23:21:38-05:00",
+      "source": "routine-report",
+      "provenance": "Nov 7, 2026 11:21 PM ET Block AI slop list verify run (ai-slop-run-2026-11-07-2319) with complete list pagination.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 811,
+      "already_blocked": 811,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "No writes. All 811 list members already blocked per connection_status. Members who left the list since 7:37 PM ET (@KhareApurv, @RhyneXBT) stay blocked and were not unblocked. This finished run does not observe Nov 7 after 11:21 PM ET through midnight."
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "snapshot:2026-11-07T09:09:00-05:00",
+      "as_of": "2026-11-07T09:09:00-05:00",
+      "source": "routine-report",
+      "provenance": "Nov 7, 2026 9 AM ET run report after its blocks.",
+      "completeness": "point_in_time",
+      "list_size": 793,
+      "list_members_blocked": 756,
+      "list_members_unblocked": 37,
+      "x_blocks_total": 801,
+      "notes": "Point-in-time. 756+37=793. X blocks 801 is the full block list, down from 798 at 11:37 PM Nov 6 before the 5 new blocks (796 at run start; 2 accounts left the block set overnight, not identified)."
+    },
+    {
+      "id": "snapshot:2026-11-07T16:14:02-05:00",
+      "as_of": "2026-11-07T16:14:02-05:00",
+      "source": "approved-batch-verify",
+      "provenance": "Nov 7, 2026 4:14 PM ET completion report with full list and block-list pagination.",
+      "completeness": "point_in_time",
+      "list_size": 794,
+      "list_members_blocked": 794,
+      "list_members_unblocked": 0,
+      "x_blocks_total": 840,
+      "notes": "Point-in-time after the approved 37 and one extra new member were blocked. 794+0=794."
+    },
+    {
+      "id": "snapshot:2026-11-07T19:37:01-05:00",
+      "as_of": "2026-11-07T19:37:01-05:00",
+      "source": "routine-report",
+      "provenance": "Nov 7, 2026 7:37 PM ET run report after blocking 2 new list members.",
+      "completeness": "point_in_time",
+      "list_size": 813,
+      "list_members_blocked": 813,
+      "list_members_unblocked": 0,
+      "x_blocks_total": 859,
+      "notes": "Point-in-time. Day peak list size. 813+0=813."
+    },
+    {
+      "id": "snapshot:2026-11-07T23:33:50-05:00",
+      "as_of": "2026-11-07T23:33:50-05:00",
+      "source": "x-api-snapshot",
+      "provenance": "Fully paginated X list members (9 pages) and block list (1 page, no next token) read via user-X at about 11:34 PM ET on Nov 7, 2026.",
+      "completeness": "point_in_time",
+      "list_size": 811,
+      "list_members_blocked": 811,
+      "list_members_unblocked": 0,
+      "x_blocks_total": 859,
+      "notes": "Point-in-time live recount for the nightly export. List https://x.com/i/lists/2116659176894071283. Page chain matched the 11:21 PM run; same 811 ids. X blocks 859 is the full block list, not the monitor sum (Nov 1-7 monitor sum is 861; accounts leaving the block set explain the gap). Export cutoff is this read, about 11:34 PM ET. Nov 7 after that through midnight was not observed and is not recorded as zero or as complete."
+    }
+  ],
+  "open_work": [
+    {
+      "id": "open:2026-11-06:unapproved-37",
+      "as_of": "2026-11-07T16:14:02-05:00",
+      "source": "approved-batch-verify",
+      "provenance": "The 37 newer curated-list members pending since 9:43 PM ET Nov 6, 2026 were approved and blocked at 4:14 PM ET Nov 7, 2026.",
+      "status": "done",
+      "approved_count": 37,
+      "remaining": 0,
+      "related_event_id": "monitor-new:2026-11-07:16:14",
+      "notes": "Closed. related new_blocks 37 + remaining 0 = approved_count 37. Includes followed account mdp_sec, blocked per the approval. The extra block in the same 4:13:54–4:14:02 PM ET run is @hiimsimsas on monitor-new:2026-11-07:16:13, a bookkeeping id rather than a separate observed minute."
+    }
+  ],
+  "accounts": [
+    {
+      "id": "account:stencilhaggai",
+      "handle": "StencilHaggai",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 587,
+        "followers": 17,
+        "following": 2,
+        "created_on": "2026-10-16",
+        "display_name": "HaggaiStencil"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T09:09:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:09:09"
+      }
+    },
+    {
+      "id": "account:novatechinfo",
+      "handle": "Novatechinfo",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 7207,
+        "followers": 28934,
+        "following": 2878,
+        "created_on": "2026-06-27",
+        "display_name": "Nova Tech"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T09:09:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:09:09"
+      }
+    },
+    {
+      "id": "account:faqdev",
+      "handle": "faqdev",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1748,
+        "followers": 1876,
+        "following": 1260,
+        "created_on": "2026-01-17",
+        "display_name": "Facu 🦦"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T09:09:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:09:09"
+      }
+    },
+    {
+      "id": "account:meistercoins",
+      "handle": "MeisterCoins",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 5537,
+        "followers": 80,
+        "following": 388,
+        "created_on": "2022-06-12",
+        "display_name": "Becker Meister"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T09:09:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:09:09"
+      }
+    },
+    {
+      "id": "account:sathya_partha",
+      "handle": "sathya_partha",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 451,
+        "followers": 118,
+        "following": 353,
+        "created_on": "2017-01-03",
+        "display_name": "Sathya P"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T09:09:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:09:09"
+      }
+    },
+    {
+      "id": "account:ironredsandhive",
+      "handle": "IronRedSandHive",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 118923,
+        "followers": 2125,
+        "following": 4574,
+        "created_on": "2023-11-13",
+        "display_name": "IronRed | SandHive"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T15:10:00-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:15:10"
+      }
+    },
+    {
+      "id": "account:hiimsimsas",
+      "handle": "hiimsimsas",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1450,
+        "followers": 376,
+        "following": 170,
+        "created_on": "2019-04-01",
+        "display_name": "Simsas"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:13:54-05:00",
+        "source": "monitor-event",
+        "provenance": "Blocked in the same 4:13:54–4:14:02 PM ET run as the approved 37. The 16:13 id is not a separate observed block minute. Re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:13"
+      }
+    },
+    {
+      "id": "account:blackironx_007",
+      "handle": "BlackironX_007",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 635,
+        "followers": 4,
+        "following": 34,
+        "created_on": "2026-10-24",
+        "display_name": "BlackironX"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:memoraxis",
+      "handle": "Memoraxis",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1320,
+        "followers": 26,
+        "following": 52,
+        "created_on": "2026-10-01",
+        "display_name": "Memoraxis"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:antisshah",
+      "handle": "AntisShah",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 3734,
+        "followers": 447,
+        "following": 489,
+        "created_on": "2026-09-02",
+        "display_name": "Adrian"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:melchezadeck369",
+      "handle": "Melchezadeck369",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 470,
+        "followers": 57,
+        "following": 293,
+        "created_on": "2026-08-19",
+        "display_name": "Rock Carter"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:deeponailabs",
+      "handle": "deeponailabs",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 10820,
+        "followers": 1170,
+        "following": 1455,
+        "created_on": "2026-07-20",
+        "display_name": "Deep"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:mirasynth0",
+      "handle": "MiraSynth0",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 9526,
+        "followers": 39991,
+        "following": 2920,
+        "created_on": "2026-07-19",
+        "display_name": "Mira Synth Tech"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:cyril_build",
+      "handle": "cyril_build",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 242,
+        "followers": 27,
+        "following": 83,
+        "created_on": "2026-06-25",
+        "display_name": "Cyril"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:yuvelir_22",
+      "handle": "Yuvelir_22",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1084,
+        "followers": 1658,
+        "following": 153,
+        "created_on": "2026-06-22",
+        "display_name": "Yuvelir"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:adrilopal99",
+      "handle": "Adrilopal99",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 656,
+        "followers": 354,
+        "following": 205,
+        "created_on": "2026-05-01",
+        "display_name": "Adrian Lopez Segura"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:mdp_sec",
+      "handle": "mdp_sec",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 5303,
+        "followers": 5172,
+        "following": 638,
+        "created_on": "2026-03-24",
+        "display_name": "Marius du Preez"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:surlymochan",
+      "handle": "surlymochan",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 3794,
+        "followers": 1081,
+        "following": 2744,
+        "created_on": "2026-02-21",
+        "display_name": "nick"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:zyeutequebec",
+      "handle": "zyeutequebec",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 2922,
+        "followers": 165,
+        "following": 1222,
+        "created_on": "2026-02-14",
+        "display_name": "Lacostedesigns"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:davhampl",
+      "handle": "davhampl",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1410,
+        "followers": 70,
+        "following": 194,
+        "created_on": "2025-11-08",
+        "display_name": "David Hampl"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:lucacaponex",
+      "handle": "LucaCaponeX",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 11614,
+        "followers": 1612,
+        "following": 770,
+        "created_on": "2025-06-20",
+        "display_name": "Luca Capone | Building with AI"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:sangurdesign",
+      "handle": "Sangurdesign",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 171,
+        "followers": 10,
+        "following": 70,
+        "created_on": "2024-10-11",
+        "display_name": "Sangur"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:kennethlau12393",
+      "handle": "kennethlau12393",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 2131,
+        "followers": 751,
+        "following": 1861,
+        "created_on": "2024-07-22",
+        "display_name": "Kenneth Lau"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:sebuzdugan",
+      "handle": "sebuzdugan",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 63785,
+        "followers": 8512,
+        "following": 1915,
+        "created_on": "2024-06-19",
+        "display_name": "Sebastian Buzdugan"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:themuscleai",
+      "handle": "themuscleai",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1003,
+        "followers": 412,
+        "following": 2385,
+        "created_on": "2023-07-18",
+        "display_name": "Muscle AI"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:richard_kr67069",
+      "handle": "richard_kr67069",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 123,
+        "followers": 1,
+        "following": 22,
+        "created_on": "2023-06-19",
+        "display_name": "Richard M. Kring"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:pengu0033",
+      "handle": "Pengu0033",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 66805,
+        "followers": 8024,
+        "following": 7558,
+        "created_on": "2023-03-25",
+        "display_name": "Mr.Pengu🐧"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:yevloop",
+      "handle": "yevloop",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 12966,
+        "followers": 2111,
+        "following": 4285,
+        "created_on": "2023-03-23",
+        "display_name": "E_genius"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:wakeona",
+      "handle": "wakeona",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1561,
+        "followers": 222,
+        "following": 980,
+        "created_on": "2022-09-30",
+        "display_name": "Caleb Jimmy"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:rudraxx13",
+      "handle": "rudraxx13",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 5162,
+        "followers": 657,
+        "following": 781,
+        "created_on": "2022-04-25",
+        "display_name": "Rudra Satani"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:cosmincraciun12",
+      "handle": "CosminCraciun12",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 152,
+        "followers": 23,
+        "following": 256,
+        "created_on": "2022-01-30",
+        "display_name": "Cosmin"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:agentikhq",
+      "handle": "AgentikHQ",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1162,
+        "followers": 7179,
+        "following": 0,
+        "created_on": "2021-12-15",
+        "display_name": "Agentik"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:catmanyau",
+      "handle": "catmanyau",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 35831,
+        "followers": 2204,
+        "following": 358,
+        "created_on": "2021-09-19",
+        "display_name": "catman"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:sergiomarakis",
+      "handle": "SergioMarakis",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 3709,
+        "followers": 1101,
+        "following": 1499,
+        "created_on": "2021-04-14",
+        "display_name": "Sergio Marakis"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:techwithmatteo",
+      "handle": "TechWithMatteo",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 15182,
+        "followers": 1338,
+        "following": 331,
+        "created_on": "2020-10-23",
+        "display_name": "Tech With Matteo"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:je4nvrg",
+      "handle": "JE4NVRG",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 3590,
+        "followers": 1052,
+        "following": 2272,
+        "created_on": "2017-08-09",
+        "display_name": "Jean Vargas"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:robinhill85",
+      "handle": "RobinHill85",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 46548,
+        "followers": 4760,
+        "following": 2343,
+        "created_on": "2017-07-15",
+        "display_name": "Robin | Poker x AI"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:vinnykapadia",
+      "handle": "vinnykapadia",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 873,
+        "followers": 132,
+        "following": 658,
+        "created_on": "2017-04-13",
+        "display_name": "Vipul Kapadia"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:castah_",
+      "handle": "Castah_",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1052,
+        "followers": 335,
+        "following": 415,
+        "created_on": "2016-06-11",
+        "display_name": "Cas | building AfterFirst"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:jatinsj710",
+      "handle": "jatinsj710",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 194,
+        "followers": 54,
+        "following": 220,
+        "created_on": "2014-12-13",
+        "display_name": "Jatin Sharma"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:syuvovo",
+      "handle": "syuvovo",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 272,
+        "followers": 20,
+        "following": 179,
+        "created_on": "2014-07-18",
+        "display_name": "Syuvo"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:sudheerdotai",
+      "handle": "sudheerdotai",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 4375,
+        "followers": 276,
+        "following": 356,
+        "created_on": "2013-05-24",
+        "display_name": "Sudheer"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:oneagentkey",
+      "handle": "oneagentkey",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 40,
+        "followers": 0,
+        "following": 32,
+        "created_on": "2011-08-22",
+        "display_name": "Settlement Loop"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:_ledandy",
+      "handle": "_ledandy",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 306,
+        "followers": 485,
+        "following": 48,
+        "created_on": "2009-05-12",
+        "display_name": "Rastignac"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T16:14:02-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:16:14"
+      }
+    },
+    {
+      "id": "account:alexlee20122022",
+      "handle": "alexlee20122022",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 3918,
+        "followers": 3183,
+        "following": 3092,
+        "created_on": "2022-10-19",
+        "display_name": "AI Ferryman Alex"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T17:25:37-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:17:25"
+      }
+    },
+    {
+      "id": "account:babelofficiall",
+      "handle": "babelofficiall",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 190,
+        "followers": 63,
+        "following": 1351,
+        "created_on": "2018-04-03",
+        "display_name": "BABEL"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T17:54:07-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:17:54"
+      }
+    },
+    {
+      "id": "account:cslelouch",
+      "handle": "cslelouch",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 813,
+        "followers": 174,
+        "following": 357,
+        "created_on": "2025-08-16",
+        "display_name": "Lelouch | AI and Tech"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T18:21:19-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:18:21"
+      }
+    },
+    {
+      "id": "account:atakantech",
+      "handle": "atakantech",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 590,
+        "followers": 755,
+        "following": 16,
+        "created_on": "2024-02-02",
+        "display_name": "Atakan"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T18:21:19-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:18:21"
+      }
+    },
+    {
+      "id": "account:sudoaptaj",
+      "handle": "sudoaptaj",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 4150,
+        "followers": 1259,
+        "following": 926,
+        "created_on": "2011-08-07",
+        "display_name": "Atul"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T18:21:19-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:18:21"
+      }
+    },
+    {
+      "id": "account:probandadev",
+      "handle": "probandadev",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 27,
+        "followers": 3,
+        "following": 3,
+        "created_on": "2026-10-15",
+        "display_name": "Probanda"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:10:57-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:10"
+      }
+    },
+    {
+      "id": "account:tinyrouterhq",
+      "handle": "TinyRouterHQ",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 160,
+        "followers": 11,
+        "following": 43,
+        "created_on": "2026-05-13",
+        "display_name": "TinyRouter"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:10:57-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:10"
+      }
+    },
+    {
+      "id": "account:nickintheloop",
+      "handle": "nickintheloop",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 60,
+        "followers": 4,
+        "following": 33,
+        "created_on": "2025-10-24",
+        "display_name": "nickintheloop"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:10:57-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:10"
+      }
+    },
+    {
+      "id": "account:thesilkraven",
+      "handle": "TheSilkRaven",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1969,
+        "followers": 80,
+        "following": 43,
+        "created_on": "2024-12-06",
+        "display_name": "Clayborn"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:10:57-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:10"
+      }
+    },
+    {
+      "id": "account:gateless_zen",
+      "handle": "gateless_zen",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 789,
+        "followers": 92,
+        "following": 587,
+        "created_on": "2021-12-26",
+        "display_name": "Gateless Gate"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:10:57-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:10"
+      }
+    },
+    {
+      "id": "account:bitdynamics_ca",
+      "handle": "bitdynamics_ca",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 991,
+        "followers": 30,
+        "following": 28,
+        "created_on": "2020-01-30",
+        "display_name": "BitDynamics"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:10:57-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:10"
+      }
+    },
+    {
+      "id": "account:khareapurv",
+      "handle": "KhareApurv",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 2239,
+        "followers": 1199,
+        "following": 871,
+        "created_on": "2016-12-06",
+        "display_name": "Apurv Khare"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": false
+      },
+      "block": {
+        "as_of": "2026-11-07T19:10:57-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:10"
+      }
+    },
+    {
+      "id": "account:davidwever",
+      "handle": "DavidWever",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 263,
+        "followers": 87,
+        "following": 131,
+        "created_on": "2015-01-04",
+        "display_name": "David H. Wever"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:10:57-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:10"
+      }
+    },
+    {
+      "id": "account:isbkch",
+      "handle": "isbkch",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 18430,
+        "followers": 5697,
+        "following": 2074,
+        "created_on": "2008-07-17",
+        "display_name": "Elias"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:10:57-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:10"
+      }
+    },
+    {
+      "id": "account:hongjinhehk",
+      "handle": "HongJinHeHK",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 289,
+        "followers": 25,
+        "following": 149,
+        "created_on": "2025-08-05",
+        "display_name": "HongJin He"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:18:30-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:18"
+      }
+    },
+    {
+      "id": "account:kamrangasanli",
+      "handle": "kamrangasanli",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 2510,
+        "followers": 297,
+        "following": 264,
+        "created_on": "2025-02-04",
+        "display_name": "Kamran Hasanli"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:18:30-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:18"
+      }
+    },
+    {
+      "id": "account:xiaoguodunzhou",
+      "handle": "xiaoguodunzhou",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 2776,
+        "followers": 837,
+        "following": 570,
+        "created_on": "2025-01-08",
+        "display_name": "小果果炖粥(必回关)"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:18:30-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:18"
+      }
+    },
+    {
+      "id": "account:maxoncheq",
+      "handle": "Maxoncheq",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 810,
+        "followers": 135,
+        "following": 254,
+        "created_on": "2023-07-08",
+        "display_name": "Maxon"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:18:30-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:18"
+      }
+    },
+    {
+      "id": "account:babayeer",
+      "handle": "Babayeer",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 1366,
+        "followers": 367,
+        "following": 445,
+        "created_on": "2026-09-25",
+        "display_name": "Brian Chen"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:37:01-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:37"
+      }
+    },
+    {
+      "id": "account:francianjinho",
+      "handle": "FranciAnjinho",
+      "profile": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "public-profile",
+        "provenance": "Public profile counters from the 11:34 PM ET Nov 7, 2026 list/block read. Lifetime posts are not measured AI slop volume.",
+        "lifetime_posts": 3169,
+        "followers": 145,
+        "following": 490,
+        "created_on": "2011-10-23",
+        "display_name": "Franciele"
+      },
+      "list_membership": {
+        "as_of": "2026-11-07T23:33:50-05:00",
+        "source": "list-snapshot",
+        "provenance": "Curated-list membership in the fully paginated 11:34 PM ET Nov 7, 2026 list read. Community assessment, not independent evidence.",
+        "on_list": true
+      },
+      "block": {
+        "as_of": "2026-11-07T19:37:01-05:00",
+        "source": "monitor-event",
+        "provenance": "Block recorded with the Nov 7, 2026 monitor event and re-checked in the 11:34 PM ET block-list read.",
+        "state": "blocked",
+        "event_id": "monitor-new:2026-11-07:19:37"
+      }
+    }
+  ]
+}
