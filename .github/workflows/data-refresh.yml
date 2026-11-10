@@ -3,8 +3,9 @@ name: data-refresh
 # Validates repo data only. Does not call X, does not read API keys, and does
 # not push. Nightly numbers land through a reviewed pull request.
 # Runs on the default branch after merge. Until repository variable
-# DATA_REFRESH_SOURCE is exactly "inbox", the job exits successfully and does
-# nothing.
+# DATA_REFRESH_SOURCE is exactly "inbox", that step exits successfully and does
+# nothing. CLANKWALL_REFRESH=public compares the committed snapshot with
+# https://clankwall.vogel.dev and does not write or push.
 on:
   schedule:
     - cron: "30 4 * * *"
@@ -27,3 +28,7 @@ jobs:
         env:
           DATA_REFRESH_SOURCE: ${{ vars.DATA_REFRESH_SOURCE }}
         run: npm run data:refresh
+      - name: Compare Clankwall only when the public feed is authorized
+        env:
+          CLANKWALL_REFRESH: ${{ vars.CLANKWALL_REFRESH }}
+        run: npm run clankwall:refresh

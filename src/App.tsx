@@ -9,6 +9,7 @@ import { DailyChart } from "./components/DailyChart";
 import { Explorer } from "./components/Explorer";
 import { ReachChart, TopPosters } from "./components/PosterChart";
 import { PosterWall } from "./components/PosterWall";
+import { ClankwallPanel } from "./components/ClankwallPanel";
 
 type SeriesMode = "new" | "cumulative";
 
@@ -92,6 +93,7 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
             <a href="#activity">Activity</a>
             <a href="#reach">Reach</a>
             <a href="#explorer">Explorer</a>
+            <a href="#clankwall">Clankwall</a>
             <a href="#method">Method</a>
           </nav>
         </div>
@@ -196,6 +198,14 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
             <h2 id="explorer-heading">Account explorer</h2>
           </div>
           <Explorer posters={posters} selected={focusHandle} onSelect={setFocusHandle} />
+        </section>
+
+        <section className="panel" id="clankwall" aria-labelledby="clankwall-heading">
+          <div className="panel-head">
+            <h2 id="clankwall-heading">Clankwall</h2>
+            <p className="panel-note">Public flag feed, separate from our blocks</p>
+          </div>
+          <ClankwallPanel dataset={dataset} />
         </section>
 
         <section id="method" aria-labelledby="method-heading">

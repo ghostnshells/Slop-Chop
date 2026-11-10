@@ -24,6 +24,8 @@ These are the committed observations, not a live reconciliation.
 
 Nov 6 still has its unresolved one-account gap (452 at 9:00 AM plus 347 would be 799; observed X blocks were 798) and 237 of 347 handles. Lifetime post counts remain public profile counters, not measured AI slop volume. People who left the list stay blocked.
 
+Clankwall’s public flag feed is a separate section. See [docs/CLANKWALL.md](docs/CLANKWALL.md) for the snapshot path and the nightly refresh. Those flags are sampled signals, not proof, and they are not this site’s block totals.
+
 ## Preview
 
 ```bash
