@@ -14,7 +14,9 @@
     "test": "vitest run",
     "validate": "tsx scripts/validate.ts",
     "ingest": "tsx scripts/ingest.ts",
-    "data:refresh": "tsx scripts/data-refresh.ts"
+    "data:refresh": "tsx scripts/data-refresh.ts",
+    "clankwall:ingest": "tsx scripts/clankwall-ingest.ts",
+    "clankwall:refresh": "tsx scripts/clankwall-refresh.ts"
   },
   "dependencies": {
     "ajv": "^8.17.1",

@@ -10,6 +10,7 @@ import { DayTimeline } from "./components/DayTimeline";
 import { Explorer } from "./components/Explorer";
 import { PosterChart } from "./components/PosterChart";
 import { PosterWall } from "./components/PosterWall";
+import { ClankwallPanel } from "./components/ClankwallPanel";
 import { Snapshots } from "./components/Snapshots";
 
 type SeriesMode = "new" | "cumulative";
@@ -91,6 +92,7 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
             <a href="#when">When</a>
             <a href="#top">Top</a>
             <a href="#explorer">Explorer</a>
+            <a href="#clankwall">Clankwall</a>
             <a href="#notes">Notes</a>
           </nav>
         </div>
@@ -200,6 +202,11 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
         <section id="explorer" aria-labelledby="explorer-heading">
           <h2 id="explorer-heading">Account explorer</h2>
           <Explorer posters={posters} selected={focusHandle} onSelect={setFocusHandle} />
+        </section>
+
+        <section id="clankwall" aria-labelledby="clankwall-heading">
+          <h2 id="clankwall-heading">Clankwall</h2>
+          <ClankwallPanel dataset={dataset} />
         </section>
 
         <section id="notes" aria-labelledby="notes-heading">
