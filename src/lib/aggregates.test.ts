@@ -19,15 +19,19 @@ describe("verified monitor totals", () => {
       ["2026-11-05", 378, "complete"],
       ["2026-11-06", 347, "complete"],
       ["2026-11-07", 64, "complete"],
+      ["2026-11-08", 11, "partial"],
+      ["2026-11-09", 78, "complete"],
     ]);
-    expect(totals.completeNewBlocks).toBe(861);
-    expect(totals.partialNewBlocks).toBe(0);
-    expect(totals.recordedNewBlocks).toBe(861);
-    expect(totals.lastCompleteDate).toBe("2026-11-07");
+    expect(totals.completeNewBlocks).toBe(939);
+    expect(totals.partialNewBlocks).toBe(11);
+    expect(totals.recordedNewBlocks).toBe(950);
+    expect(totals.lastCompleteDate).toBe("2026-11-09");
     expect(totals.days[4]?.cumulativeComplete).toBe(450);
     expect(totals.days[5]?.cumulativeRecorded).toBe(797);
-    expect(totals.days[5]?.cumulativeComplete).toBe(797);
     expect(totals.days[6]?.cumulativeRecorded).toBe(861);
+    expect(totals.days[7]?.newBlocks).toBe(11);
+    expect(totals.days[7]?.cumulativeComplete).toBe(861);
+    expect(totals.days[8]?.cumulativeRecorded).toBe(950);
     const superseded = dataset.events.find((event) => event.id === "monitor-new:2026-11-06:11:35");
     expect(superseded?.status).toBe("superseded");
     expect(superseded?.new_blocks).toBe(110);
@@ -40,8 +44,8 @@ describe("verified monitor totals", () => {
     mutated.open_work[0]!.remaining = 99999;
     mutated.monitoring.preexisting_blocked_excluded = 70;
     const next = aggregate(mutated);
-    expect(next.recordedNewBlocks).toBe(861);
-    expect(next.completeNewBlocks).toBe(861);
+    expect(next.recordedNewBlocks).toBe(950);
+    expect(next.completeNewBlocks).toBe(939);
     expect(next.preexistingBlockedExcluded).toBe(70);
   });
 

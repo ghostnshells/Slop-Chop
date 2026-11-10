@@ -10,30 +10,35 @@ describe("poster gallery", () => {
 
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/AI slop posters/i);
     expect(screen.getByRole("article", { name: "Monitor newly blocked, complete days" })).toHaveTextContent(
-      "861",
+      "939",
     );
-    expect(screen.getByRole("article", { name: "Partial monitor blocks" })).toHaveTextContent("0");
-    expect(screen.getByRole("article", { name: "X blocks at latest timestamp" })).toHaveTextContent("859");
+    expect(screen.getByRole("article", { name: "Partial monitor blocks" })).toHaveTextContent("11");
+    expect(screen.getByRole("article", { name: "Partial monitor blocks" })).toHaveTextContent(
+      "Recorded floor, not a full count",
+    );
+    expect(screen.getByRole("article", { name: "X blocks at latest timestamp" })).toHaveTextContent("946");
     expect(screen.getByRole("article", { name: "Curated list size at a timestamp" })).toHaveTextContent(
-      "811",
+      "787",
     );
     expect(screen.queryByRole("complementary", { name: "Unfinished batch" })).not.toBeInTheDocument();
     const snapshots = screen.getByRole("region", { name: "Snapshots and pending work" });
     expect(snapshots).toHaveTextContent("Nov 7, 2026, 11:33 PM EST");
     expect(snapshots).toHaveTextContent("859");
     expect(snapshots).toHaveTextContent("not observed");
-    expect(document.querySelector(".stamp")).toBeNull();
+    expect(document.querySelector(".stamp")).toHaveTextContent(/Nov 8/);
+    expect(screen.getByRole("button", { name: /November 8, 2026, 11 newly blocked, partial floor/ })).toBeInTheDocument();
 
     expect(
       screen.getByRole("list", { name: "Named slop posters" }).querySelectorAll(".avatar-wrap").length,
     ).toBeGreaterThan(20);
     expect(screen.getByRole("link", { name: "@mdp_sec" })).toBeInTheDocument();
 
-    expect(screen.getByRole("button", { name: /November 7, 2026, 64 newly blocked/ })).toHaveAttribute(
+    expect(screen.getByRole("button", { name: /November 9, 2026, 78 newly blocked/ })).toHaveAttribute(
       "aria-pressed",
       "true",
     );
-    expect(screen.getByRole("region", { name: "November 7, 2026 detail" })).toHaveTextContent("64");
+    expect(screen.getByRole("region", { name: "November 9, 2026 detail" })).toHaveTextContent("78");
+    expect(screen.getByRole("button", { name: /November 7, 2026, 64 newly blocked/ })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /November 6, 2026, 347 newly blocked/ })).toBeInTheDocument();
     expect(screen.getByText(/Superseded record/)).toHaveTextContent("110");
 
@@ -45,10 +50,10 @@ describe("poster gallery", () => {
     expect(
       screen.getByRole("button", { name: /November 5, 2026, 450 cumulative newly blocked/ }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("region", { name: "When" })).toHaveTextContent("861");
+    expect(screen.getByRole("region", { name: "When" })).toHaveTextContent("950");
 
     await user.click(screen.getByRole("button", { name: "Zoom in" }));
-    expect(screen.getByText(/Showing/)).toHaveTextContent("4 of 7 days");
+    expect(screen.getByText(/Showing/)).toHaveTextContent("5 of 9 days");
 
     const method = screen.getByRole("region", { name: "Methodology" });
     expect(method).toHaveTextContent(/community assessment/);

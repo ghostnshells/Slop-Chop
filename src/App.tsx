@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import rawDefault from "../data/dataset.json";
 import { aggregate } from "./lib/aggregates";
 import { collectPosters } from "./lib/posters";
-import { formatAsOf, formatCount, formatDay, formatSlot } from "./lib/format";
+import { formatAsOf, formatCount, formatDay, formatSlot, sourceLabel } from "./lib/format";
 import type { Dataset, Snapshot } from "./lib/types";
 import { validateDataset } from "./schema/validate";
 import { DailyChart } from "./components/DailyChart";
@@ -104,7 +104,7 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
             </h1>
             {partialDay ? (
               <p className="stamp">
-                {formatDay(partialDay.date)} partial
+                {formatDay(partialDay.date)} floor
               </p>
             ) : null}
           </div>
@@ -120,10 +120,12 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
             </p>
           </article>
           <article className="partial" aria-label="Partial monitor blocks">
-            <p className="kicker">Partial day</p>
+            <p className="kicker">Partial floor</p>
             <p className="value">{formatCount(totals.partialNewBlocks)}</p>
             <p className="detail">
-              {partialDay ? formatDay(partialDay.date, "long") : "None"}
+              {partialDay
+                ? `${formatDay(partialDay.date, "long")}. Recorded floor, not a full count.`
+                : "None"}
             </p>
           </article>
           <article aria-label="X blocks at latest timestamp">
@@ -143,6 +145,7 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
                 : "—"}
             </p>
             <p className="detail">
+              {listSnapshot ? `${sourceLabel(listSnapshot.source)}. ` : ""}
               {listSnapshot && typeof listSnapshot.list_members_unblocked === "number"
                 ? `${formatCount(listSnapshot.list_members_unblocked)} still open`
                 : "—"}
@@ -164,7 +167,7 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
               <h3>{formatDay(selectedDay.date, "long")}</h3>
               <p className="mono">
                 {formatCount(selectedDay.newBlocks)}
-                {selectedDay.status === "partial" ? " · partial" : ""}
+                {selectedDay.status === "partial" ? " · partial floor, not a full day" : ""}
                 {" · "}
                 {formatCount(selectedDay.cumulativeRecorded)} total
               </p>

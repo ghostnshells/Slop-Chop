@@ -8,13 +8,13 @@ import { IngestError, mergeDataset } from "./merge";
 
 const base = validateDataset(structuredClone(raw)).value as Dataset;
 
-function event(newBlocks: number, id = "monitor-new:2026-11-08:09:00"): MonitorEvent {
+function event(newBlocks: number, id = "monitor-new:2026-12-01:09:00"): MonitorEvent {
   return {
     id,
     kind: "monitor_new_blocks",
-    date: "2026-11-08",
+    date: "2026-12-01",
     slot: "09:00",
-    as_of: "2026-11-08T09:00:00-05:00",
+    as_of: "2026-12-01T09:00:00-05:00",
     source: "routine-journal",
     provenance: "Unit test journal entry for ingest behavior.",
     status: "complete",
@@ -56,7 +56,7 @@ describe("idempotent ingest", () => {
       inbox("2026-11-07.test-fix", [event(4)]),
       new Date("2026-11-07T18:00:00Z"),
     );
-    expect(fixed.events.filter((item) => item.date === "2026-11-08")).toHaveLength(1);
+    expect(fixed.events.filter((item) => item.date === "2026-12-01")).toHaveLength(1);
     expect(aggregate(fixed).completeNewBlocks).toBe(baseTotal + 4);
     expect(fixed.revisions.some((revision) => revision.op === "replace")).toBe(true);
   });
@@ -67,15 +67,15 @@ describe("idempotent ingest", () => {
   });
 
   it("keeps a superseded row without counting it beside its replacement", () => {
-    const oldRow = event(50, "monitor-new:2026-11-08:10:00:old");
+    const oldRow = event(50, "monitor-new:2026-12-01:10:00:old");
     oldRow.slot = "10:00";
-    oldRow.as_of = "2026-11-08T10:00:00-05:00";
+    oldRow.as_of = "2026-12-01T10:00:00-05:00";
     oldRow.status = "superseded";
-    const active = event(2, "monitor-new:2026-11-08:10:00");
+    const active = event(2, "monitor-new:2026-12-01:10:00");
     active.slot = "10:00";
-    active.as_of = "2026-11-08T10:00:00-05:00";
-    const next = mergeDataset(base, inbox("2026-11-08.test-supersede", [oldRow, active]), now);
-    const day = aggregate(next).days.find((item) => item.date === "2026-11-08");
+    active.as_of = "2026-12-01T10:00:00-05:00";
+    const next = mergeDataset(base, inbox("2026-12-01.test-supersede", [oldRow, active]), now);
+    const day = aggregate(next).days.find((item) => item.date === "2026-12-01");
     expect(day?.newBlocks).toBe(2);
     expect(next.events.some((item) => item.status === "superseded")).toBe(true);
   });

@@ -10,11 +10,12 @@ These are the committed observations, not a live reconciliation.
 
 | Measurement | Value | What it is |
 | --- | --- | --- |
-| Monitor through Nov 7 | 861 | Nov 1–6 remain 797. Nov 7 recorded runs add 64. Verified only through about 11:34 PM ET, not through midnight. |
-| X blocks at Nov 7, 11:33 PM ET | 859 | Latest full block list. List size 811, all blocked on the list, 0 unblocked. Not the monitor sum. |
-| Nov 7 same run | 38 | 37 previously pending accounts, including @mdp_sec, plus @hiimsimsas. The 16:13 row is bookkeeping for that extra account, not a separate observed minute. |
-| Pending | none | The Nov 6 unapproved-37 work is closed. |
-| Earlier timestamps | kept | Including Nov 6 11:37 PM ET at X blocks 798 and list 794. |
+| Monitor, complete days | 939 | Through Nov 9, excluding Nov 8. Nov 7 remains 64. Nov 9 adds 78 from the Clankwall feed. |
+| Nov 8 partial floor | 11 | Recorded before 7:55 AM ET. The X list stopped resolving after that, so 11 is not a full-day count. |
+| Recorded including that floor | 950 | 939 complete plus the Nov 8 floor of 11. |
+| X blocks at Nov 9, 11:09 PM ET | 946 | Full block list. Separate from the monitor sum. |
+| Clankwall feed, same timestamp | 787 | 775 blocked on that feed, 12 not blockable. This replaced the deleted X list. |
+| Nov 7 same run | 38 | 37 previously pending accounts, including @mdp_sec, plus @hiimsimsas. The 16:13 row is bookkeeping, not a separate observed minute. |
 
 Nov 6 still has its unresolved one-account gap (452 at 9:00 AM plus 347 would be 799; observed X blocks were 798) and 237 of 347 handles. Lifetime post counts remain public profile counters, not measured AI slop volume. People who left the list stay blocked.
 

@@ -37,6 +37,7 @@ const SOURCE_LABELS: Record<string, string> = {
   "list-snapshot": "List snapshot",
   "monitor-event": "Monitor event",
   "grok-bot-verified-log": "Grok Bot verified log",
+  "clankwall-ai-feed": "Clankwall AI feed",
   "x-api-snapshot": "Paginated X list and block snapshot",
   "example-only": "Example only",
 };
