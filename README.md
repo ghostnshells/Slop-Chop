@@ -13,8 +13,11 @@ These are the committed observations, not a live reconciliation.
 | Monitor, complete days | 939 | Through Nov 9, excluding Nov 8. Nov 7 remains 64. Nov 9 adds 78 from the Clankwall feed. |
 | Nov 8 partial floor | 11 | Recorded before 7:55 AM ET. The X list stopped resolving after that, so 11 is not a full-day count. |
 | Recorded including that floor | 950 | 939 complete plus the Nov 8 floor of 11. |
-| X blocks at Nov 9, 11:09 PM ET | 946 | Full block list. Separate from the monitor sum. |
-| Clankwall feed, same timestamp | 787 | 775 blocked on that feed, 12 not blockable. This replaced the deleted X list. |
+| Nov 10 partial floor | 0 | 93 runs through 11:18 PM ET, all with no new blocks. The routine continues until midnight, so this is not a closed day. |
+| Recorded through Nov 10 | 950 | The Nov 10 floor adds nothing to the Nov 1–9 recorded total. |
+| X blocks at Nov 10, 11:27 PM ET | 944 | Down from 946. @veefightclip and @jimmyaicreator were suspended by X and left the block list. This monitor did not unblock them. |
+| Clankwall feed then | 787 | 773 blocked on that feed, 14 not blocked (12 suspended, 2 inactive). |
+| X blocks at Nov 9, 11:09 PM ET | 946 | Earlier full block list. Separate from the monitor sum. |
 | Nov 7 same run | 38 | 37 previously pending accounts, including @mdp_sec, plus @hiimsimsas. The 16:13 row is bookkeeping, not a separate observed minute. |
 
 Nov 6 still has its unresolved one-account gap (452 at 9:00 AM plus 347 would be 799; observed X blocks were 798) and 237 of 347 handles. Lifetime post counts remain public profile counters, not measured AI slop volume. People who left the list stay blocked.

@@ -51,7 +51,8 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
   const selectedDay = totals.days.find((day) => day.date === selected) ?? null;
   const xSnapshot = latestNumbered(dataset.snapshots, "x_blocks_total");
   const listSnapshot = latestNumbered(dataset.snapshots, "list_size");
-  const partialDay = totals.days.find((day) => day.status === "partial");
+  const partialDays = totals.days.filter((day) => day.status === "partial");
+  const partialDay = partialDays.at(-1) ?? null;
 
   function download() {
     const blob = new Blob([JSON.stringify(raw, null, 2)], { type: "application/json" });
@@ -123,8 +124,10 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
             <p className="kicker">Partial floor</p>
             <p className="value">{formatCount(totals.partialNewBlocks)}</p>
             <p className="detail">
-              {partialDay
-                ? `${formatDay(partialDay.date, "long")}. Recorded floor, not a full count.`
+              {partialDays.length > 0
+                ? `${partialDays
+                    .map((day) => `${formatDay(day.date)} ${formatCount(day.newBlocks)}`)
+                    .join(", ")}. Recorded floor, not a full count.`
                 : "None"}
             </p>
           </article>
@@ -135,7 +138,12 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
                 ? formatCount(xSnapshot.x_blocks_total)
                 : "—"}
             </p>
-            <p className="detail">{xSnapshot ? formatAsOf(xSnapshot.as_of) : "—"}</p>
+            <p className="detail">
+              {xSnapshot ? formatAsOf(xSnapshot.as_of) : "—"}
+              {xSnapshot?.notes.toLowerCase().includes("suspended")
+                ? " Suspended accounts that leave this list are not unblocks."
+                : ""}
+            </p>
           </article>
           <article aria-label="Curated list size at a timestamp">
             <p className="kicker">On the list</p>
@@ -147,7 +155,7 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
             <p className="detail">
               {listSnapshot ? `${sourceLabel(listSnapshot.source)}. ` : ""}
               {listSnapshot && typeof listSnapshot.list_members_unblocked === "number"
-                ? `${formatCount(listSnapshot.list_members_unblocked)} still open`
+                ? `${formatCount(listSnapshot.list_members_unblocked)} not blocked on this feed`
                 : "—"}
             </p>
           </article>
