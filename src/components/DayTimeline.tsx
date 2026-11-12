@@ -31,7 +31,7 @@ export function DayTimeline({
               <span>{formatDay(day.date, "long")}</span>
               <span className="mono">
                 {formatCount(day.newBlocks)} new
-                {day.status === "partial" ? " · partial" : ""}
+                {day.status === "partial" ? " · partial floor" : ""}
               </span>
               <span className="mono dim">
                 cumulative {formatCount(day.cumulativeRecorded)}

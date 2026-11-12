@@ -17,7 +17,7 @@ function valueFor(day: DayAggregate, mode: SeriesMode): number {
 
 function barLabel(day: DayAggregate, mode: SeriesMode): string {
   const kind = mode === "new" ? "newly blocked" : "cumulative newly blocked";
-  const partial = day.status === "partial" ? ", partial incomplete day" : "";
+  const partial = day.status === "partial" ? ", partial floor, not a full day" : "";
   return `${formatDay(day.date, "long")}, ${formatCount(valueFor(day, mode))} ${kind}${partial}`;
 }
 
@@ -231,7 +231,7 @@ export function DailyChart({
                   </span>
                   <span className="day-name">{formatDay(day.date)}</span>
                   <span className={`day-flag ${day.status}`}>
-                    {day.status === "partial" ? "Partial" : "Complete"}
+                    {day.status === "partial" ? "Floor" : "Complete"}
                   </span>
                 </button>
               );
@@ -244,7 +244,7 @@ export function DailyChart({
               <span className={`swatch solid ${mode}`} /> Complete day
             </li>
             <li>
-              <span className={`swatch hatch ${mode}`} /> Partial day, striped
+              <span className={`swatch hatch ${mode}`} /> Partial day: recorded floor, not a full count
             </li>
           </ul>
           <label className="pan-range">

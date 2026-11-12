@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "export_id": "2026-11-11t0427z-gandalf",
+  "exported_at": "2026-11-11T04:27:46Z",
+  "exported_by": "gandalf",
+  "source": "grok-bot-verified-log",
+  "provenance": "Nightly export of the 93 Nov 10, 2026 Block AI slop list run reports (12:07 AM to 11:18 PM ET, all zero newly blocked) plus a live paged read of the X block list at export time.",
+  "events": [
+    {
+      "id": "monitor-new:2026-11-10:23:18",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-10",
+      "slot": "23:18",
+      "as_of": "2026-11-10T23:19:27-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 10, 2026 11:18 PM ET run report: Clankwall feed 787 (snapshot 41d76f42), 0 writes, and the 92 earlier Nov 10 run reports also record zero newly blocked.",
+      "status": "partial",
+      "new_blocks": 0,
+      "list_size": 787,
+      "already_blocked": 773,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Verified zero for all of Nov 10: each of the 93 run reports (12:07 AM to 11:18 PM ET) shows no writes and no new blocks; no Clankwall additions or removals after the Nov 9 7:41 PM batch. The progress.json carry-over counters (completed_today_cumulative 78) are Nov 9 batch figures and are not counted. 14 feed accounts remain unblocked and unblockable (12 suspended, 2 inactive). Day marked partial: the routine keeps running until midnight ET, so Nov 10 is not closed at export time."
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "snapshot:2026-11-10T23:27:46-05:00",
+      "as_of": "2026-11-10T23:27:46-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 10, 2026 export-time read: full X block list paged to the end (944, no next token) compared to the Clankwall AI-flagged feed of 787 from the 11:18 PM ET run.",
+      "completeness": "point_in_time",
+      "list_size": 787,
+      "list_members_blocked": 773,
+      "list_members_unblocked": 14,
+      "x_blocks_total": 944,
+      "notes": "List here means the Clankwall AI-flagged feed (snapshot 41d76f42). 773 of its 787 ids appear in the live block list. The 14 not on the block list are unblockable (12 suspended, 2 inactive). X blocks fell from 946 (Nov 9 11:09 PM) to 945 by 1:05 AM and 944 by 8:23 AM with no monitor writes. @veefightclip and @jimmyaicreator were suspended by X and fell off the block list. This monitor did not unblock them. X blocks is the full block list, not the monitor sum."
+    }
+  ],
+  "open_work": [],
+  "accounts": []
+}
