@@ -598,11 +598,24 @@ pre {
   gap: 0.45rem;
 }
 
-.ranks li {
+.ranks li,
+.flag-dist li {
   display: grid;
   grid-template-columns: minmax(8rem, 14rem) 1fr auto;
   gap: 0.7rem;
   align-items: center;
+}
+
+.flag-dist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.flag-dist li {
+  grid-template-columns: 2.5rem 1fr auto;
 }
 
 .rank-track {

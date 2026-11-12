@@ -65,6 +65,12 @@ describe("poster gallery", () => {
 
     await user.click(screen.getByRole("button", { name: "Zoom in" }));
     expect(screen.getByText(/6 of 11 days/)).toBeInTheDocument();
+    const clankwall = screen.getByRole("region", { name: "Clankwall" });
+    expect(clankwall).toHaveTextContent("2,769");
+    expect(clankwall).toHaveTextContent("772/787");
+    expect(clankwall).toHaveTextContent(/signals, not proof/i);
+    expect(clankwall).toHaveTextContent(/did not unblock/i);
+    expect(clankwall).toHaveTextContent("@mariaai_786");
 
     const method = screen.getByRole("region", { name: "Methodology" });
     expect(method).toHaveTextContent(/community assessment/);
