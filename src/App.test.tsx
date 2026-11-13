@@ -12,40 +12,34 @@ describe("poster gallery", () => {
     expect(screen.getByRole("article", { name: "Monitor newly blocked, complete days" })).toHaveTextContent(
       "797",
     );
-    expect(screen.getByRole("article", { name: "Partial monitor blocks" })).toHaveTextContent("0");
     expect(screen.getByRole("article", { name: "X blocks at latest timestamp" })).toHaveTextContent("798");
     expect(screen.getByRole("article", { name: "Curated list size at a timestamp" })).toHaveTextContent(
       "794",
     );
-    expect(screen.getByRole("complementary", { name: "Unfinished batch" })).toHaveTextContent("37");
-    expect(screen.getByRole("complementary", { name: "Unfinished batch" })).toHaveTextContent("mdp_sec");
-    const snapshots = screen.getByRole("region", { name: "Snapshots and pending work" });
-    expect(snapshots).toHaveTextContent("Nov 6, 2026, 9:00 AM EST");
-    expect(snapshots).toHaveTextContent("Nov 6, 2026, 11:35 AM EST");
-    expect(snapshots).toHaveTextContent("Nov 6, 2026, 11:37 PM EST");
-    expect(document.querySelector(".stamp")).toBeNull();
+    expect(screen.queryByText(/Snapshots and pending work/)).not.toBeInTheDocument();
+    expect(screen.queryByRole("complementary", { name: "Unfinished batch" })).not.toBeInTheDocument();
+    expect(screen.queryByText(/partial \+/)).not.toBeInTheDocument();
 
     expect(
       screen.getByRole("list", { name: "Named slop posters" }).querySelectorAll(".avatar-wrap").length,
     ).toBeGreaterThan(20);
+    expect(screen.getByRole("link", { name: /more$/ })).toHaveAttribute("href", "#explorer");
     expect(screen.getByRole("link", { name: "@mdp_sec" })).toBeInTheDocument();
 
     expect(screen.getByRole("button", { name: /November 6, 2026, 347 newly blocked/ })).toHaveAttribute(
       "aria-pressed",
       "true",
     );
-    expect(screen.getByRole("region", { name: "November 6, 2026 detail" })).toHaveTextContent("347");
-    expect(screen.getByText(/Superseded record/)).toHaveTextContent("110");
+    expect(screen.getByText(/347 new · 797 total/)).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /November 5, 2026, 378 newly blocked/ }));
-    expect(screen.getByRole("region", { name: "November 5, 2026 detail" })).toHaveTextContent("378");
-    expect(screen.getByText(/approval t3s15/)).toBeInTheDocument();
+    expect(screen.getByText(/378 new · 450 total/)).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: "Cumulative" }));
     expect(
       screen.getByRole("button", { name: /November 5, 2026, 450 cumulative newly blocked/ }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("region", { name: "When" })).toHaveTextContent("797");
+    expect(screen.getByRole("region", { name: "Blocks per day" })).toHaveTextContent("797");
 
     await user.click(screen.getByRole("button", { name: "Zoom in" }));
     expect(screen.getByText(/Showing/)).toHaveTextContent("3 of 6 days");
@@ -54,6 +48,7 @@ describe("poster gallery", () => {
     expect(method).toHaveTextContent(/community assessment/);
     expect(method).toHaveTextContent(/not measured AI slop volume/);
     expect(method).toHaveTextContent(/Superseded rows/);
+    expect(method).toHaveTextContent("110");
     const explorer = screen.getByRole("region", { name: "Account explorer" });
     expect(explorer).toHaveTextContent(/not measured AI slop volume/);
     expect(explorer).toHaveTextContent("@mdp_sec");

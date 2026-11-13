@@ -79,63 +79,76 @@ export function DailyChart({
       ? `Showing ${formatDay(first.date)}–${formatDay(last.date)}, ${visible.length} of ${days.length} days`
       : "No days";
 
+  const selectedDay = selectedIndex >= 0 ? days[selectedIndex] : null;
+
   return (
     <div className="chart-panel">
       <div className="toolbar">
         <div className="segmented" role="group" aria-label="Series">
-          <button
-            type="button"
-            aria-pressed={mode === "new"}
-            onClick={() => onMode("new")}
-          >
-            Newly blocked
+          <button type="button" aria-pressed={mode === "new"} onClick={() => onMode("new")}>
+            Daily
           </button>
-          <button
-            type="button"
-            aria-pressed={mode === "cumulative"}
-            onClick={() => onMode("cumulative")}
-          >
+          <button type="button" aria-pressed={mode === "cumulative"} onClick={() => onMode("cumulative")}>
             Cumulative
           </button>
         </div>
-        <div className="segmented" role="group" aria-label="Chart window">
-          <button
-            type="button"
-            onClick={() => setWindow((current) => zoomWindow(current, days.length, "in", anchor))}
-          >
-            Zoom in
-          </button>
-          <button
-            type="button"
-            onClick={() => setWindow((current) => zoomWindow(current, days.length, "out", anchor))}
-          >
-            Zoom out
-          </button>
-          <button
-            type="button"
-            onClick={() => setWindow(zoomWindow(window, days.length, "reset", anchor))}
-          >
-            Reset view
-          </button>
-          <button
-            type="button"
-            onClick={() => setWindow((current) => panWindow(current, -1, days.length))}
-            disabled={window.start === 0}
-          >
-            Pan earlier
-          </button>
-          <button
-            type="button"
-            onClick={() => setWindow((current) => panWindow(current, 1, days.length))}
-            disabled={window.start >= maxStart}
-          >
-            Pan later
-          </button>
-        </div>
-        <p className="window-status" aria-live="polite">
-          {windowText}
-        </p>
+        {days.length > 1 ? (
+          <div className="icon-group" role="group" aria-label="Chart window">
+            <button
+              type="button"
+              aria-label="Pan earlier"
+              title="Pan earlier"
+              onClick={() => setWindow((current) => panWindow(current, -1, days.length))}
+              disabled={window.start === 0}
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              aria-label="Zoom out"
+              title="Zoom out"
+              onClick={() => setWindow((current) => zoomWindow(current, days.length, "out", anchor))}
+            >
+              −
+            </button>
+            <button
+              type="button"
+              aria-label="Zoom in"
+              title="Zoom in"
+              onClick={() => setWindow((current) => zoomWindow(current, days.length, "in", anchor))}
+            >
+              +
+            </button>
+            <button
+              type="button"
+              aria-label="Reset view"
+              title="Reset view"
+              onClick={() => setWindow(zoomWindow(window, days.length, "reset", anchor))}
+            >
+              ⟲
+            </button>
+            <button
+              type="button"
+              aria-label="Pan later"
+              title="Pan later"
+              onClick={() => setWindow((current) => panWindow(current, 1, days.length))}
+              disabled={window.start >= maxStart}
+            >
+              ›
+            </button>
+          </div>
+        ) : null}
       </div>
+      <p className="window-status" aria-live="polite">
+        {selectedDay ? (
+          <span className="readout">
+            <strong>{formatDay(selectedDay.date)}</strong> {formatCount(selectedDay.newBlocks)} new ·{" "}
+            {formatCount(selectedDay.cumulativeRecorded)} total
+            {selectedDay.status === "partial" ? " · partial" : ""}
+          </span>
+        ) : null}
+        <span className="dim">{windowText}</span>
+      </p>
 
       <div
         className={`chart ${mode}`}
@@ -185,7 +198,7 @@ export function DailyChart({
               const inView = index >= window.start && index < window.start + window.size;
               if (!inView) return null;
               const amount = valueFor(day, mode);
-              const height = Math.max(2, Math.round((amount / max) * 180));
+              const height = Math.max(2, Math.round((amount / max) * 150));
               return (
                 <button
                   key={day.date}
@@ -230,42 +243,25 @@ export function DailyChart({
                     <span className="bar" style={{ height }} />
                   </span>
                   <span className="day-name">{formatDay(day.date)}</span>
-                  <span className={`day-flag ${day.status}`}>
-                    {day.status === "partial" ? "Partial" : "Complete"}
-                  </span>
+                  {day.status === "partial" ? <span className="day-flag partial">Partial</span> : null}
                 </button>
               );
             })}
           </div>
         </div>
-        <div className="chart-foot">
+        {days.some((day) => day.status === "partial") ? (
           <ul className="legend">
             <li>
               <span className={`swatch solid ${mode}`} /> Complete day
             </li>
             <li>
-              <span className={`swatch hatch ${mode}`} /> Partial day, striped
+              <span className={`swatch hatch ${mode}`} /> Partial day
             </li>
           </ul>
-          <label className="pan-range">
-            Pan date window
-            <input
-              type="range"
-              min={0}
-              max={maxStart}
-              step={1}
-              value={window.start}
-              disabled={maxStart === 0}
-              aria-valuetext={windowText}
-              onChange={(event) =>
-                setWindow((current) => ({ ...current, start: Number(event.target.value) }))
-              }
-            />
-          </label>
-        </div>
+        ) : null}
         <p id={captionId} className="caption">
-          {mode === "new" ? "New blocks per day." : "Running total, including partial days."} ET dates.
-          Drag to pan, Ctrl-scroll to zoom.
+          {mode === "new" ? "New blocks per day" : "Running total"}, ET dates. Drag to pan, Ctrl-scroll to
+          zoom.
         </p>
       </div>
     </div>
