@@ -1,0 +1,76 @@
+name: slop-chop-12h-tick
+
+# Twice daily nudge that keeps the hands-off loop honest when Cursor Automations
+# cannot be saved from this machine (ARM Glass bug). If CURSOR_API_KEY +
+# CURSOR_AGENT_ID secrets exist, this starts a Cloud Agent run that ingests the
+# latest Bash export, opens a data-ingest PR, and relies on data-auto-merge.
+# Without those secrets the job still posts a dated tick issue so nothing is silent.
+on:
+  schedule:
+    # 04:30 and 16:30 America/New_York in November (UTC-5) → 09:30 / 21:30 UTC
+    - cron: "30 9,21 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cursor Cloud Agent when configured
+        id: cloud
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+          CURSOR_AGENT_ID: ${{ secrets.CURSOR_AGENT_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CURSOR_API_KEY:-}" ] || [ -z "${CURSOR_AGENT_ID:-}" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "CURSOR_API_KEY / CURSOR_AGENT_ID not set; falling back to tick issue."
+            exit 0
+          fi
+          prompt=$(cat <<'EOF'
+          Slop-Chop 12h ingest tick for ghostnshells/Slop-Chop.
+
+          1. Prefer a new Bash export (exported_by bash, source grok-bot-verified-log). Accept a pending Gandalf export only if Bash has nothing newer.
+          2. If nothing new vs main / open data PRs: stop with "no change".
+          3. Otherwise branch from main, add only data/inbox (+ optional data/handoffs), run npm run ingest, npm test, npm run lint, npm run validate, npm run ingest -- --check.
+          4. Open or update a PR labeled data-ingest. Quote timestamps and partial days.
+          5. Enable GitHub auto-merge (squash). Do not wait for a human. No secrets. No unrelated src redesign.
+          EOF
+          )
+          body=$(jq -n --arg text "$prompt" '{prompt:{text:$text}}')
+          code=$(curl -sS -o /tmp/cursor-run.json -w '%{http_code}' \
+            -u "${CURSOR_API_KEY}:" \
+            -H 'Content-Type: application/json' \
+            -d "$body" \
+            "https://api.cursor.com/v1/agents/${CURSOR_AGENT_ID}/runs")
+          echo "HTTP $code"
+          cat /tmp/cursor-run.json
+          test "$code" -ge 200 -a "$code" -lt 300
+          echo "configured=true" >> "$GITHUB_OUTPUT"
+
+      - name: Open tick issue when Cloud Agent is not configured
+        if: steps.cloud.outputs.configured != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          stamp=$(date -u +%Y-%m-%dT%H%MZ)
+          gh label create data-ingest --repo "$GITHUB_REPOSITORY" --color 0E8A16 --description "Auto-merge data ingest PRs" 2>/dev/null || true
+          gh label create slop-chop-tick --repo "$GITHUB_REPOSITORY" --color 1D76DB --description "12h refresh tick" 2>/dev/null || true
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Slop-Chop 12h tick $stamp" \
+            --label "slop-chop-tick" \
+            --body "$(cat <<EOF
+          Automated 12h tick ($stamp UTC).
+
+          Bash: drop a verified inbox export if blocks/snapshots changed, then open a \`data-ingest\` PR (auto-merge is armed by workflow).
+
+          Cursor: if a new export exists and no PR covers it, ingest per docs/DATA_CONTRACT.md, label \`data-ingest\`, enable auto-merge.
+
+          Close this issue when the tick is handled or confirmed no-op.
+          EOF
+          )"

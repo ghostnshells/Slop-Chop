@@ -1,0 +1,73 @@
+name: data-auto-merge
+
+# Hands-off merge for data-ingest PRs once required checks are green.
+# Label a PR with `data-ingest` (or open it from the 12h ingest path) and this
+# workflow enables GitHub auto-merge. It never merges red CI.
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, labeled, ready_for_review]
+  check_suite:
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: Pull request number to arm for auto-merge
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: read
+
+concurrency:
+  group: data-auto-merge-${{ github.event.pull_request.number || github.event.inputs.pr || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  arm:
+    if: github.event_name != 'check_suite'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve PR number
+        id: pr
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          INPUT_PR: ${{ github.event.inputs.pr }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "number=$INPUT_PR" >> "$GITHUB_OUTPUT"
+          else
+            echo "number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Arm auto-merge when labeled data-ingest
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ steps.pr.outputs.number }}
+        run: |
+          set -euo pipefail
+          meta=$(gh pr view "$PR" --repo "$GITHUB_REPOSITORY" --json isDraft,labels,mergeStateStatus,url)
+          echo "$meta"
+          echo "$meta" | jq -e '.isDraft == false' >/dev/null
+          echo "$meta" | jq -e '[.labels[].name] | index("data-ingest")' >/dev/null
+          gh pr merge "$PR" --repo "$GITHUB_REPOSITORY" --auto --squash
+          echo "Armed auto-merge for $PR"
+
+  rearm-on-green:
+    if: github.event_name == 'check_suite' && github.event.check_suite.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Re-arm open data-ingest PRs on this head
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ github.event.check_suite.head_sha }}
+        run: |
+          set -euo pipefail
+          gh pr list --repo "$GITHUB_REPOSITORY" --state open --json number,labels,isDraft,headRefOid \
+            --jq ".[] | select(.isDraft == false and .headRefOid == \"$HEAD_SHA\" and ([.labels[].name] | index(\"data-ingest\"))) | .number" \
+            | while read -r pr; do
+                [ -n "$pr" ] || continue
+                gh pr merge "$pr" --repo "$GITHUB_REPOSITORY" --auto --squash || true
+                echo "Re-armed auto-merge for #$pr"
+              done
