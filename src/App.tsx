@@ -51,6 +51,11 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
   const partialDay = totals.days.find((day) => day.status === "partial");
   const profiled = posters.filter((poster) => poster.followers != null || poster.lifetimePosts != null);
   const superseded = dataset.events.filter((event) => event.status === "superseded");
+  const suspensionNote = xSnapshot?.notes.includes("@mariaai_786")
+    ? "@mariaai_786 was suspended by X and left this list. Not an unblock."
+    : xSnapshot?.notes.toLowerCase().includes("suspended")
+      ? "Suspended accounts that leave this list are not unblocks."
+      : "";
 
   function download() {
     const blob = new Blob([JSON.stringify(raw, null, 2)], { type: "application/json" });
@@ -133,7 +138,10 @@ function Gallery({ dataset, raw }: { dataset: Dataset; raw: unknown }) {
                   ? formatCount(xSnapshot.x_blocks_total)
                   : "—"}
               </p>
-              <p className="stat-detail">{xSnapshot ? formatAsOf(xSnapshot.as_of) : "—"}</p>
+              <p className="stat-detail">
+                {xSnapshot ? formatAsOf(xSnapshot.as_of) : "—"}
+                {suspensionNote ? ` ${suspensionNote}` : ""}
+              </p>
             </article>
             <article className="stat" aria-label="Curated list size at a timestamp">
               <p className="stat-label">On the list</p>

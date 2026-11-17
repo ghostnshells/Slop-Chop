@@ -12,7 +12,7 @@ describe("dataset contract", () => {
   it("accepts the seeded dataset and the example export", () => {
     const seeded = validateDataset(raw);
     expect(seeded.ok, seeded.errors.map((error) => `${error.path} ${error.message}`).join("\n")).toBe(true);
-    expect(seeded.value?.accounts).toHaveLength(37);
+    expect(seeded.value?.accounts).toHaveLength(64);
     expect(seeded.value?.events.find((event) => event.id === "monitor-new:2026-11-06:11:35")?.status).toBe(
       "superseded",
     );

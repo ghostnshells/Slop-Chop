@@ -14,10 +14,10 @@ describe("poster gallery records", () => {
     const namedBlocked = posters.find((poster) => poster.handle === "GLaDOUGHSandHiv");
     expect(namedBlocked?.blockState).toBe("blocked");
     expect(namedBlocked?.blockedOn).toBe("2026-11-01");
-    const pending = posters.find((poster) => poster.handle.toLowerCase() === "mdp_sec");
-    expect(pending?.blockState).toBe("not_blocked");
-    expect(pending?.blockedOn).toBeNull();
-    expect(pending?.followers).toEqual(expect.any(Number));
+    const followed = posters.find((poster) => poster.handle.toLowerCase() === "mdp_sec");
+    expect(followed?.blockState).toBe("blocked");
+    expect(followed?.blockedOn).toBe("2026-11-07");
+    expect(followed?.followers).toEqual(expect.any(Number));
   });
 
   it("can sort chartable posters by posts and keep pending last when sorting by block date", () => {
@@ -31,7 +31,17 @@ describe("poster gallery records", () => {
       sortDir: "desc",
     });
     expect(byPosts[0]?.lifetimePosts ?? 0).toBeGreaterThan(byPosts.at(-1)?.lifetimePosts ?? 0);
-    const byDate = queryPosters(posters, {
+    const withUnblocked = [
+      ...posters,
+      {
+        ...posters[0]!,
+        id: "account:still_pending",
+        handle: "still_pending",
+        blockedOn: null,
+        blockState: "not_blocked" as const,
+      },
+    ];
+    const byDate = queryPosters(withUnblocked, {
       text: "",
       onList: "any",
       block: "any",

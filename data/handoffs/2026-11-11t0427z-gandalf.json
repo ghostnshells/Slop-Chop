@@ -1,0 +1,10 @@
+{
+  "export_path": "/workspace/slop-chop-exports/2026-11-11t0427z-gandalf.json",
+  "intended_repo_path": "data/inbox/2026-11-11t0427z-gandalf.json",
+  "export_id": "2026-11-11t0427z-gandalf",
+  "schema_version": "1.0.0",
+  "validation": "jsonschema inboxExport OK against main data/schema/v1.schema.json; contract sum checks OK (list 787 = 773 + 14; 773 + 0 <= 787)",
+  "repo_state": "PR #1 merged to main; not pushed, no PR opened, no repo checkout",
+  "verified_totals": {"monitor_nov10_new_blocks": 0, "runs_checked_nov10": 93, "monitor_cumulative_nov1_to_nov9": 950, "x_blocks_live_2327et": 944, "list_feed_size": 787, "list_blocked": 773, "list_unblocked": 14, "unblocked_breakdown": "12 suspended, 2 inactive"},
+  "changed_vs_previous_export": "No new blocks. Snapshot changed: X blocks 946 -> 944, blocked-in-feed 775 -> 773, unblocked 12 -> 14 (veefightclip, jimmyaicreator dropped off block list, now suspended)."
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "export_id": "2026-11-12t0433z-gandalf",
+  "exported_at": "2026-11-12T04:33:00Z",
+  "exported_by": "gandalf",
+  "source": "grok-bot-verified-log",
+  "provenance": "Nightly export of the 94 Nov 11, 2026 Block AI slop list run reports (12:09 AM to 11:23 PM ET, all zero newly blocked) plus the 11:23 PM ET paged read of the X block list.",
+  "events": [
+    {
+      "id": "monitor-new:2026-11-11:23:23",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-11",
+      "slot": "23:23",
+      "as_of": "2026-11-11T23:23:00-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 11, 2026 11:23 PM ET run report: Clankwall feed 787 (snapshot 41d76f42), 0 writes, and the 93 earlier Nov 11 run reports (report.json) also record 0 writes.",
+      "status": "partial",
+      "new_blocks": 0,
+      "list_size": 787,
+      "already_blocked": 772,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Verified zero for Nov 11: all 94 run reports (12:09 AM to 11:23 PM ET) show writes 0 and no new blocks; no Clankwall additions or removals. 15 feed accounts remain unblocked and unblockable (13 suspended, 2 inactive). Day marked partial: routine runs until midnight ET."
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "snapshot:2026-11-11T23:23:00-05:00",
+      "as_of": "2026-11-11T23:23:00-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 11, 2026 11:23 PM ET run: full X block list paged to the end (943, no next token) vs Clankwall AI feed of 787.",
+      "completeness": "point_in_time",
+      "list_size": 787,
+      "list_members_blocked": 772,
+      "list_members_unblocked": 15,
+      "x_blocks_total": 943,
+      "notes": "List means the Clankwall AI-flagged feed (snapshot 41d76f42). 772 of 787 ids are in the live block list; 15 unblocked are unblockable (13 suspended, 2 inactive). X blocks fell 944 to 943 with no monitor writes. @mariaai_786 was suspended by X and fell off the block list. This monitor did not unblock them, same as @veefightclip and @jimmyaicreator. X blocks is the full block list, not the monitor sum."
+    }
+  ],
+  "open_work": [],
+  "accounts": []
+}
