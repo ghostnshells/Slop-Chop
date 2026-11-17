@@ -60,9 +60,9 @@ describe("Clankwall snapshot", () => {
       blocked: 772,
       notBlocked: 15,
     });
-    expect(coverage?.asOf).toBe("2026-11-11T23:23:00-05:00");
+    expect(coverage?.asOf).toBe("2026-11-14T03:01:40-05:00");
     expect(coverage?.notes).toMatch(/suspended/i);
-    expect(coverage?.notes).toMatch(/did not unblock/i);
-    expect(coverage?.notes).toMatch(/mariaai_786/);
+    expect(coverage?.notes).toMatch(/not extrapolated/i);
+    expect(coverage?.xBlocksTotal).toBe(943);
   });
 });
