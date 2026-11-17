@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "entries": [
+    {
+      "snapshot": "f33b6c40e173c09e8727bf2e379d5fd3",
+      "generated_at": "2026-11-08T19:01:38.305Z",
+      "imported_at": "2026-11-10T04:48:58.622Z",
+      "total": 2769,
+      "ai_flagged": 773,
+      "spam_only": 1996
+    }
+  ]
+}
