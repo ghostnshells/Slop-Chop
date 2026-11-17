@@ -14,7 +14,10 @@ describe("poster gallery", () => {
     );
     expect(screen.getByRole("article", { name: "X blocks at latest timestamp" })).toHaveTextContent("943");
     expect(screen.getByRole("article", { name: "X blocks at latest timestamp" })).toHaveTextContent(
-      "@mariaai_786 was suspended by X and left this list. Not an unblock.",
+      "Nov 14, 2026, 3:01 AM EST",
+    );
+    expect(screen.getByRole("article", { name: "X blocks at latest timestamp" })).toHaveTextContent(
+      "Suspended accounts that leave this list are not unblocks.",
     );
     expect(screen.getByRole("article", { name: "Curated list size at a timestamp" })).toHaveTextContent(
       "787",
@@ -29,12 +32,19 @@ describe("poster gallery", () => {
     expect(screen.getByRole("link", { name: /more$/ })).toHaveAttribute("href", "#explorer");
     expect(screen.getByRole("link", { name: "@mdp_sec" })).toBeInTheDocument();
 
+    expect(screen.getByRole("button", { name: "November 16, 2026, 0 newly blocked" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+    const readout = document.querySelector(".readout");
+    expect(readout).toHaveTextContent("Nov 16");
+    expect(readout).toHaveTextContent("0 new · 950 total");
+    expect(readout).not.toHaveTextContent("partial");
     expect(
-      screen.getByRole("button", { name: /November 11, 2026, 0 newly blocked, partial incomplete day/ }),
-    ).toHaveAttribute("aria-pressed", "true");
-    expect(screen.getByText(/0 new · 950 total · partial/)).toBeInTheDocument();
+      screen.getByRole("button", { name: /November 12, 2026, 0 newly blocked, partial incomplete day/ }),
+    ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /November 10, 2026, 0 newly blocked, partial incomplete day/ }),
+      screen.getByRole("button", { name: /November 14, 2026, 0 newly blocked, partial incomplete day/ }),
     ).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /November 5, 2026, 378 newly blocked/ }));
@@ -47,13 +57,13 @@ describe("poster gallery", () => {
     expect(screen.getByRole("region", { name: "Blocks per day" })).toHaveTextContent("950");
 
     await user.click(screen.getByRole("button", { name: "Zoom in" }));
-    expect(screen.getByText(/6 of 11 days/)).toBeInTheDocument();
+    expect(screen.getByText(/7 of 16 days/)).toBeInTheDocument();
     const clankwall = screen.getByRole("region", { name: "Clankwall" });
     expect(clankwall).toHaveTextContent("2,769");
     expect(clankwall).toHaveTextContent("772/787");
     expect(clankwall).toHaveTextContent(/signals, not proof/i);
-    expect(clankwall).toHaveTextContent(/did not unblock/i);
-    expect(clankwall).toHaveTextContent("@mariaai_786");
+    expect(clankwall).toHaveTextContent(/not extrapolated/i);
+    expect(clankwall).toHaveTextContent("Nov 14, 2026, 3:01 AM EST");
 
     const method = screen.getByRole("region", { name: "Methodology" });
     expect(method).toHaveTextContent(/community assessment/);
