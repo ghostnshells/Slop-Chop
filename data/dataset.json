@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "dataset_id": "slop-chop.block-monitor",
-  "updated_at": "2026-11-17T12:11:10.146Z",
+  "updated_at": "2026-11-24T12:37:35.012Z",
   "compiler": {
     "name": "slop-chop-ingest",
     "version": "1.0.0"
@@ -1163,6 +1163,142 @@
       "handles": [],
       "handles_complete": true,
       "notes": "Single scheduled daily run at 7:06 AM ET. Outcome nothing_to_do, writes 0, Clankwall snapshot 41d76f42 unchanged (787; accounts HTTP 304 same etag, bodies reused from the Nov 15 run). Live X block list was not fetched (same expired get_users_blocking approval from 3:32 AM ET Nov 14; last-good remains 3:01 AM ET Nov 14: 943 blocks, 772 already blocked). Leftover lookup unchanged: 13 suspended, 2 inactive, 0 blockable. already_blocked is omitted because the live list was not read this day."
+    },
+    {
+      "id": "monitor-new:2026-11-17:07:05",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-17",
+      "slot": "07:05",
+      "as_of": "2026-11-17T07:09:06-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 17, 2026 7:05 AM ET daily Block AI slop list run report: writes 0, snapshot 41d76f42.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 787,
+      "already_blocked": null,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 41d76f42 (787 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable."
+    },
+    {
+      "id": "monitor-new:2026-11-18:07:08",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-18",
+      "slot": "07:08",
+      "as_of": "2026-11-18T07:14:19-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 18, 2026 7:08 AM ET daily Block AI slop list run report: writes 0, snapshot 41d76f42.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 787,
+      "already_blocked": null,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 41d76f42 (787 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable."
+    },
+    {
+      "id": "monitor-new:2026-11-19:07:10",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-19",
+      "slot": "07:10",
+      "as_of": "2026-11-19T07:13:51-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 19, 2026 7:10 AM ET daily Block AI slop list run report: writes 0, snapshot 41d76f42.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 787,
+      "already_blocked": null,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 41d76f42 (787 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable."
+    },
+    {
+      "id": "monitor-new:2026-11-20:07:10",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-20",
+      "slot": "07:10",
+      "as_of": "2026-11-20T07:13:59-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 20, 2026 7:10 AM ET daily Block AI slop list run report: writes 0, snapshot 948e6fa1.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 786,
+      "already_blocked": null,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 948e6fa1 (786 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable. Feed removal: @devvrathans dropped off the Clankwall AI feed; treated as a feed removal (not an unblock), the account stays blocked per policy."
+    },
+    {
+      "id": "monitor-new:2026-11-21:07:05",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-21",
+      "slot": "07:05",
+      "as_of": "2026-11-21T07:08:09-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 21, 2026 7:05 AM ET daily Block AI slop list run report: writes 0, snapshot 948e6fa1.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 786,
+      "already_blocked": null,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 948e6fa1 (786 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable."
+    },
+    {
+      "id": "monitor-new:2026-11-22:07:14",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-22",
+      "slot": "07:14",
+      "as_of": "2026-11-22T07:18:56-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 22, 2026 7:14 AM ET daily Block AI slop list run report: writes 0, snapshot 948e6fa1.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 786,
+      "already_blocked": null,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 948e6fa1 (786 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable."
+    },
+    {
+      "id": "monitor-new:2026-11-23:07:09",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-23",
+      "slot": "07:09",
+      "as_of": "2026-11-23T07:11:56-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 23, 2026 7:09 AM ET daily Block AI slop list run report: writes 0, snapshot 38246d50.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 785,
+      "already_blocked": null,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 38246d50 (785 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable. Feed removal: @stefano_caioni dropped off the Clankwall AI feed; treated as a feed removal (not an unblock), the account stays blocked per policy."
+    },
+    {
+      "id": "monitor-new:2026-11-24:07:20",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-24",
+      "slot": "07:20",
+      "as_of": "2026-11-24T07:20:31-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 24, 2026 7:20 AM ET daily Block AI slop list run report: writes 0, snapshot 38246d50.",
+      "status": "partial",
+      "new_blocks": 0,
+      "list_size": 785,
+      "already_blocked": null,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 38246d50 (785 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable. Day in progress at export time; marked partial."
     }
   ],
   "snapshots": [
@@ -4544,6 +4680,86 @@
       "op": "insert",
       "previous_hash": null,
       "next_hash": "b6f913f05f230b8dc05e7dc207fe6796e42750c04fdb717327b54ea09669ae67"
+    },
+    {
+      "id": "rev:2026-11-24t1235z-gandalf:events:monitor-new:2026-11-17:07:05:insert",
+      "at": "2026-11-24T12:37:35.012Z",
+      "export_id": "2026-11-24t1235z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-17:07:05",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "e6fc63654e6b175bc869e91f673c86b42daa77cb30e5ebc6ea46e3bf34b6e15f"
+    },
+    {
+      "id": "rev:2026-11-24t1235z-gandalf:events:monitor-new:2026-11-18:07:08:insert",
+      "at": "2026-11-24T12:37:35.012Z",
+      "export_id": "2026-11-24t1235z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-18:07:08",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "092a344dccf6eb6f35b14452c92e8bfb6c6293b055cfe62132dacabd0044db55"
+    },
+    {
+      "id": "rev:2026-11-24t1235z-gandalf:events:monitor-new:2026-11-19:07:10:insert",
+      "at": "2026-11-24T12:37:35.012Z",
+      "export_id": "2026-11-24t1235z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-19:07:10",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "02dca3cee76ff212f338ecc1fe3712dd2181a24c4efbb79bc9e0886549f75c00"
+    },
+    {
+      "id": "rev:2026-11-24t1235z-gandalf:events:monitor-new:2026-11-20:07:10:insert",
+      "at": "2026-11-24T12:37:35.012Z",
+      "export_id": "2026-11-24t1235z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-20:07:10",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "a2f54eac28fa89b427ca04a867c4b32639fdf9013fd7d954cce2374abfcd8814"
+    },
+    {
+      "id": "rev:2026-11-24t1235z-gandalf:events:monitor-new:2026-11-21:07:05:insert",
+      "at": "2026-11-24T12:37:35.012Z",
+      "export_id": "2026-11-24t1235z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-21:07:05",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "50d60c678e6e150925aea972f702ae3ed40370afcfa530de4b2f9ae53420dc9d"
+    },
+    {
+      "id": "rev:2026-11-24t1235z-gandalf:events:monitor-new:2026-11-22:07:14:insert",
+      "at": "2026-11-24T12:37:35.012Z",
+      "export_id": "2026-11-24t1235z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-22:07:14",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "bb0b0953b1c6e66cf13d22bd1ea0470478be1a6df8e5178e9b74ec85a991e401"
+    },
+    {
+      "id": "rev:2026-11-24t1235z-gandalf:events:monitor-new:2026-11-23:07:09:insert",
+      "at": "2026-11-24T12:37:35.012Z",
+      "export_id": "2026-11-24t1235z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-23:07:09",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "94bc687e06486c360a06dc53563ce2b964bb6a38812d3ba4eae1a649e3432478"
+    },
+    {
+      "id": "rev:2026-11-24t1235z-gandalf:events:monitor-new:2026-11-24:07:20:insert",
+      "at": "2026-11-24T12:37:35.012Z",
+      "export_id": "2026-11-24t1235z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-24:07:20",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "6875b92a9d63b3c1e2d952a695d0864888d704ea5f6ed1ccc2d43cfe4c3d1a96"
     }
   ],
   "applied_exports": [
@@ -4576,6 +4792,11 @@
       "export_id": "2026-11-17t1201z-gandalf",
       "content_hash": "0aa5f1c2e251627144d63d73a2653a1b726d24b8d82ec88ed94c0a8b6bc322a1",
       "applied_at": "2026-11-17T12:11:10.146Z"
+    },
+    {
+      "export_id": "2026-11-24t1235z-gandalf",
+      "content_hash": "ebf534c2fb62d87d4c877ae11ff3ecd2ff8c3e63a32d9c33400fdac381814f29",
+      "applied_at": "2026-11-24T12:37:35.012Z"
     }
   ]
 }
