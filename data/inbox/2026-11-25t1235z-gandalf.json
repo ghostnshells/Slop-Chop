@@ -1,0 +1,47 @@
+{
+ "schema_version": "1.0.0",
+ "export_id": "2026-11-25t1235z-gandalf",
+ "exported_at": "2026-11-25T12:35:20Z",
+ "exported_by": "gandalf",
+ "source": "grok-bot-verified-log",
+ "provenance": "Daily export covering Nov 24-25, 2026 from the Block AI slop list run reports. No new blocks verified; feed unchanged (785 AI-flagged, snapshot 38246d50).",
+ "events": [
+  {
+   "id": "monitor-new:2026-11-24:07:20",
+   "kind": "monitor_new_blocks",
+   "date": "2026-11-24",
+   "slot": "07:20",
+   "as_of": "2026-11-24T07:20:31-05:00",
+   "source": "clankwall-ai-feed",
+   "provenance": "Nov 24, 2026 7:20 AM ET daily Block AI slop list run report: writes 0, snapshot 38246d50.",
+   "status": "complete",
+   "new_blocks": 0,
+   "list_size": 785,
+   "already_blocked": null,
+   "approval_id": null,
+   "handles": [],
+   "handles_complete": true,
+   "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 38246d50 (785 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable."
+  },
+  {
+   "id": "monitor-new:2026-11-25:07:11",
+   "kind": "monitor_new_blocks",
+   "date": "2026-11-25",
+   "slot": "07:11",
+   "as_of": "2026-11-25T07:15:38-05:00",
+   "source": "clankwall-ai-feed",
+   "provenance": "Nov 25, 2026 7:11 AM ET daily Block AI slop list run report: writes 0, snapshot 38246d50.",
+   "status": "partial",
+   "new_blocks": 0,
+   "list_size": 785,
+   "already_blocked": null,
+   "approval_id": null,
+   "handles": [],
+   "handles_complete": true,
+   "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 38246d50 (785 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable. Day in progress at export time; marked partial."
+  }
+ ],
+ "snapshots": [],
+ "open_work": [],
+ "accounts": []
+}

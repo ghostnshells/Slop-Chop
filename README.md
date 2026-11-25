@@ -18,9 +18,10 @@ These are the committed observations, not a live reconciliation.
 | Nov 12 partial | 0 | Outage from 1:52 AM to 6:23 PM ET. Every report that exists has 0 writes. |
 | Nov 13, 15, and 16 | 0 complete | No new blocks. Nov 15 and Nov 16 are the once-a-day 7 AM runs. |
 | Nov 14 partial | 0 | Reports stop at 12:49 PM ET. |
-| Recorded through Nov 24 | 950 | The zero days do not change the Nov 1–9 recorded total. Complete days stay 939. |
+| Recorded through Nov 25 | 950 | The zero days do not change the Nov 1–9 recorded total. Complete days stay 939. |
 | Nov 17–23 | 0 complete | Daily 7 AM runs. No new blocks and no live X block-list read. |
-| Nov 24 | 0 partial | The 7:20 AM ET run had 0 writes. The day was still in progress at export time. |
+| Nov 24 | 0 complete | The 7:20 AM ET run closed at 0 writes. The earlier partial row is replaced. |
+| Nov 25 | 0 partial | The 7:11 AM ET run had 0 writes. The day was still in progress at export time. Feed still 785, snapshot 38246d50. |
 | Clankwall feed in the run reports | 787, then 786, then 785 | Nov 20 drops @devvrathans and Nov 23 drops @stefano_caioni. Both are feed removals, not unblocks. This export has no new snapshot, so the last point-in-time list read stays Nov 14. |
 | X blocks, last live read | 943 | 3:01 AM ET on Nov 14. Later runs did not read the live list, so this total is not extrapolated. |
 | Clankwall feed at that snapshot | 787 | 772 blocked on that feed, 15 unblockable (13 suspended, 2 inactive). |

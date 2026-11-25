@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "dataset_id": "slop-chop.block-monitor",
-  "updated_at": "2026-11-24T12:37:35.012Z",
+  "updated_at": "2026-11-25T12:35:56.796Z",
   "compiler": {
     "name": "slop-chop-ingest",
     "version": "1.0.0"
@@ -1291,6 +1291,23 @@
       "as_of": "2026-11-24T07:20:31-05:00",
       "source": "clankwall-ai-feed",
       "provenance": "Nov 24, 2026 7:20 AM ET daily Block AI slop list run report: writes 0, snapshot 38246d50.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 785,
+      "already_blocked": null,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 38246d50 (785 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable."
+    },
+    {
+      "id": "monitor-new:2026-11-25:07:11",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-25",
+      "slot": "07:11",
+      "as_of": "2026-11-25T07:15:38-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 25, 2026 7:11 AM ET daily Block AI slop list run report: writes 0, snapshot 38246d50.",
       "status": "partial",
       "new_blocks": 0,
       "list_size": 785,
@@ -4760,6 +4777,26 @@
       "op": "insert",
       "previous_hash": null,
       "next_hash": "6875b92a9d63b3c1e2d952a695d0864888d704ea5f6ed1ccc2d43cfe4c3d1a96"
+    },
+    {
+      "id": "rev:2026-11-25t1235z-gandalf:events:monitor-new:2026-11-24:07:20:replace",
+      "at": "2026-11-25T12:35:56.796Z",
+      "export_id": "2026-11-25t1235z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-24:07:20",
+      "op": "replace",
+      "previous_hash": "6875b92a9d63b3c1e2d952a695d0864888d704ea5f6ed1ccc2d43cfe4c3d1a96",
+      "next_hash": "a5d8bf2d60ae63b162b2cdf1c5a9a53534413dfa205954ba686fa1769a72ed93"
+    },
+    {
+      "id": "rev:2026-11-25t1235z-gandalf:events:monitor-new:2026-11-25:07:11:insert",
+      "at": "2026-11-25T12:35:56.796Z",
+      "export_id": "2026-11-25t1235z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-25:07:11",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "3644ed4b0b695a4ee5b9c3e409cdc559026a2bf0ddba36261cc8d13e7e7f5159"
     }
   ],
   "applied_exports": [
@@ -4797,6 +4834,11 @@
       "export_id": "2026-11-24t1235z-gandalf",
       "content_hash": "ebf534c2fb62d87d4c877ae11ff3ecd2ff8c3e63a32d9c33400fdac381814f29",
       "applied_at": "2026-11-24T12:37:35.012Z"
+    },
+    {
+      "export_id": "2026-11-25t1235z-gandalf",
+      "content_hash": "0d4caa0cbebb91c9d0c2be7be001ef8d2a7d8e65288afd48753e16927b23c8bd",
+      "applied_at": "2026-11-25T12:35:56.796Z"
     }
   ]
 }
