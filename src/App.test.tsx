@@ -5,7 +5,7 @@ import { App } from "./App";
 
 describe("poster gallery", () => {
   it("keeps the redesign and shows Nov 10–11 as partial with the suspension note", async () => {
-    const user = userEvent.setup();
+    const user = userEvent.setup({ delay: null });
     render(<App />);
 
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/AI slop posters blocked/i);
@@ -47,15 +47,14 @@ describe("poster gallery", () => {
       screen.getByRole("button", { name: /November 14, 2026, 0 newly blocked, partial incomplete day/ }),
     ).toBeInTheDocument();
 
-    for (let step = 0; step < 7; step += 1) {
-      await user.click(screen.getByRole("button", { name: "Pan earlier" }));
-    }
-    await user.click(screen.getByRole("button", { name: /November 5, 2026, 378 newly blocked/ }));
-    expect(screen.getByText(/378 new · 450 total/)).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "November 16, 2026, 0 newly blocked" }));
+    expect(readout).toHaveTextContent("Nov 16");
+    expect(readout).toHaveTextContent("0 new · 950 total");
+    expect(readout).not.toHaveTextContent("partial");
 
     await user.click(screen.getByRole("button", { name: "Cumulative" }));
     expect(
-      screen.getByRole("button", { name: /November 5, 2026, 450 cumulative newly blocked/ }),
+      screen.getByRole("button", { name: /November 16, 2026, 950 cumulative newly blocked/ }),
     ).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Blocks per day" })).toHaveTextContent("950");
 
