@@ -36,12 +36,13 @@ describe("verified monitor totals", () => {
       ["2026-11-22", 0, "complete"],
       ["2026-11-23", 0, "complete"],
       ["2026-11-24", 0, "complete"],
-      ["2026-11-25", 0, "partial"],
+      ["2026-11-25", 0, "complete"],
+      ["2026-11-26", 0, "partial"],
     ]);
     expect(totals.completeNewBlocks).toBe(939);
     expect(totals.partialNewBlocks).toBe(11);
     expect(totals.recordedNewBlocks).toBe(950);
-    expect(totals.lastCompleteDate).toBe("2026-11-24");
+    expect(totals.lastCompleteDate).toBe("2026-11-25");
     expect(totals.days[4]?.cumulativeComplete).toBe(450);
     expect(totals.days[5]?.cumulativeRecorded).toBe(797);
     expect(totals.days[6]?.cumulativeRecorded).toBe(861);
@@ -60,9 +61,10 @@ describe("verified monitor totals", () => {
     expect(totals.days[15]?.cumulativeRecorded).toBe(950);
     expect(totals.days[22]?.status).toBe("complete");
     expect(totals.days[23]?.status).toBe("complete");
-    expect(totals.days[24]?.status).toBe("partial");
-    expect(totals.days[24]?.newBlocks).toBe(0);
-    expect(totals.days[24]?.cumulativeRecorded).toBe(950);
+    expect(totals.days[24]?.status).toBe("complete");
+    expect(totals.days[25]?.status).toBe("partial");
+    expect(totals.days[25]?.newBlocks).toBe(0);
+    expect(totals.days[25]?.cumulativeRecorded).toBe(950);
     const closed = dataset.events.find((event) => event.id === "monitor-new:2026-11-11:23:23");
     expect(closed?.status).toBe("superseded");
     const superseded = dataset.events.find((event) => event.id === "monitor-new:2026-11-06:11:35");

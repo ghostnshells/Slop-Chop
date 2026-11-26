@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "dataset_id": "slop-chop.block-monitor",
-  "updated_at": "2026-11-25T12:35:56.796Z",
+  "updated_at": "2026-11-26T12:31:47.001Z",
   "compiler": {
     "name": "slop-chop-ingest",
     "version": "1.0.0"
@@ -1308,6 +1308,23 @@
       "as_of": "2026-11-25T07:15:38-05:00",
       "source": "clankwall-ai-feed",
       "provenance": "Nov 25, 2026 7:11 AM ET daily Block AI slop list run report: writes 0, snapshot 38246d50.",
+      "status": "complete",
+      "new_blocks": 0,
+      "list_size": 785,
+      "already_blocked": null,
+      "approval_id": null,
+      "handles": [],
+      "handles_complete": true,
+      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 38246d50 (785 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable."
+    },
+    {
+      "id": "monitor-new:2026-11-26:07:22",
+      "kind": "monitor_new_blocks",
+      "date": "2026-11-26",
+      "slot": "07:22",
+      "as_of": "2026-11-26T07:22:35-05:00",
+      "source": "clankwall-ai-feed",
+      "provenance": "Nov 26, 2026 7:22 AM ET daily Block AI slop list run report: writes 0, snapshot 0012bb47.",
       "status": "partial",
       "new_blocks": 0,
       "list_size": 785,
@@ -1315,7 +1332,7 @@
       "approval_id": null,
       "handles": [],
       "handles_complete": true,
-      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 38246d50 (785 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable. Day in progress at export time; marked partial."
+      "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 0012bb47 (785 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable. Day in progress at export time; marked partial."
     }
   ],
   "snapshots": [
@@ -4797,6 +4814,26 @@
       "op": "insert",
       "previous_hash": null,
       "next_hash": "3644ed4b0b695a4ee5b9c3e409cdc559026a2bf0ddba36261cc8d13e7e7f5159"
+    },
+    {
+      "id": "rev:2026-11-26t1231z-gandalf:events:monitor-new:2026-11-25:07:11:replace",
+      "at": "2026-11-26T12:31:47.001Z",
+      "export_id": "2026-11-26t1231z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-25:07:11",
+      "op": "replace",
+      "previous_hash": "3644ed4b0b695a4ee5b9c3e409cdc559026a2bf0ddba36261cc8d13e7e7f5159",
+      "next_hash": "31ae8e0e6b086dc3f19b62465691d1d9f4f54cae87bc2556f73ead220bb7f74a"
+    },
+    {
+      "id": "rev:2026-11-26t1231z-gandalf:events:monitor-new:2026-11-26:07:22:insert",
+      "at": "2026-11-26T12:31:47.001Z",
+      "export_id": "2026-11-26t1231z-gandalf",
+      "collection": "events",
+      "record_id": "monitor-new:2026-11-26:07:22",
+      "op": "insert",
+      "previous_hash": null,
+      "next_hash": "9f6d2bd5de3b7e18e19f0eddb3469c3df46a125fabf5ab32be912d8dbccb9e9e"
     }
   ],
   "applied_exports": [
@@ -4839,6 +4876,11 @@
       "export_id": "2026-11-25t1235z-gandalf",
       "content_hash": "0d4caa0cbebb91c9d0c2be7be001ef8d2a7d8e65288afd48753e16927b23c8bd",
       "applied_at": "2026-11-25T12:35:56.796Z"
+    },
+    {
+      "export_id": "2026-11-26t1231z-gandalf",
+      "content_hash": "28c8e670fdb713a91a78c1be51aa76406d5e8ade8c29b9ada40c5b79e80a275d",
+      "applied_at": "2026-11-26T12:31:47.001Z"
     }
   ]
 }

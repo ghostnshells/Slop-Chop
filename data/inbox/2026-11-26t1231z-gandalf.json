@@ -1,0 +1,47 @@
+{
+ "schema_version": "1.0.0",
+ "export_id": "2026-11-26t1231z-gandalf",
+ "exported_at": "2026-11-26T12:31:03Z",
+ "exported_by": "gandalf",
+ "source": "grok-bot-verified-log",
+ "provenance": "Daily export covering Nov 25-26, 2026 from the Block AI slop list run reports. No new blocks verified; 785 AI-flagged (snapshot 0012bb47 on Nov 26, record-level change only; 0 added, 0 removed).",
+ "events": [
+  {
+   "id": "monitor-new:2026-11-25:07:11",
+   "kind": "monitor_new_blocks",
+   "date": "2026-11-25",
+   "slot": "07:11",
+   "as_of": "2026-11-25T07:15:38-05:00",
+   "source": "clankwall-ai-feed",
+   "provenance": "Nov 25, 2026 7:11 AM ET daily Block AI slop list run report: writes 0, snapshot 38246d50.",
+   "status": "complete",
+   "new_blocks": 0,
+   "list_size": 785,
+   "already_blocked": null,
+   "approval_id": null,
+   "handles": [],
+   "handles_complete": true,
+   "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 38246d50 (785 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable."
+  },
+  {
+   "id": "monitor-new:2026-11-26:07:22",
+   "kind": "monitor_new_blocks",
+   "date": "2026-11-26",
+   "slot": "07:22",
+   "as_of": "2026-11-26T07:22:35-05:00",
+   "source": "clankwall-ai-feed",
+   "provenance": "Nov 26, 2026 7:22 AM ET daily Block AI slop list run report: writes 0, snapshot 0012bb47.",
+   "status": "partial",
+   "new_blocks": 0,
+   "list_size": 785,
+   "already_blocked": null,
+   "approval_id": null,
+   "handles": [],
+   "handles_complete": true,
+   "notes": "Single scheduled daily run. Outcome nothing_to_do, writes 0, Clankwall snapshot 0012bb47 (785 AI-flagged). Live X block list was not fetched (expired get_users_blocking approval from Nov 14; last-good 943 blocks as of 3:01 AM ET Nov 14). Leftover: 13 suspended, 2 inactive, 0 blockable. Day in progress at export time; marked partial."
+  }
+ ],
+ "snapshots": [],
+ "open_work": [],
+ "accounts": []
+}
