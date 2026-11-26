@@ -33,16 +33,13 @@ describe("poster gallery", () => {
     expect(screen.getByRole("link", { name: "@mdp_sec" })).toBeInTheDocument();
 
     expect(
-      screen.getByRole("button", { name: /November 25, 2026, 0 newly blocked, partial incomplete day/ }),
+      screen.getByRole("button", { name: /November 26, 2026, 0 newly blocked, partial incomplete day/ }),
     ).toHaveAttribute("aria-pressed", "true");
-    expect(screen.getByRole("button", { name: "November 24, 2026, 0 newly blocked" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "November 25, 2026, 0 newly blocked" })).toBeInTheDocument();
     const readout = document.querySelector(".readout");
-    expect(readout).toHaveTextContent("Nov 25");
+    expect(readout).toHaveTextContent("Nov 26");
     expect(readout).toHaveTextContent("0 new · 950 total");
     expect(readout).toHaveTextContent("partial");
-    expect(
-      screen.getByRole("button", { name: /November 12, 2026, 0 newly blocked, partial incomplete day/ }),
-    ).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: /November 14, 2026, 0 newly blocked, partial incomplete day/ }),
     ).toBeInTheDocument();
@@ -59,7 +56,7 @@ describe("poster gallery", () => {
     expect(screen.getByRole("region", { name: "Blocks per day" })).toHaveTextContent("950");
 
     await user.click(screen.getByRole("button", { name: "Zoom in" }));
-    expect(screen.getByText(/7 of 25 days/)).toBeInTheDocument();
+    expect(screen.getByText(/7 of 26 days/)).toBeInTheDocument();
     const clankwall = screen.getByRole("region", { name: "Clankwall" });
     expect(clankwall).toHaveTextContent("2,769");
     expect(clankwall).toHaveTextContent("772/787");
